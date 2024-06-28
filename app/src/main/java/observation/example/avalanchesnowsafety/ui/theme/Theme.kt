@@ -1,4 +1,4 @@
-package com.example.avalanchesnowsafety.ui.theme
+package observation.example.avalanchesnowsafety.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package com.example.avalanchesnowsafety
+package observation
 
 import org.junit.Test
 
