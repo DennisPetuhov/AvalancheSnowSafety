@@ -1,4 +1,4 @@
-package observation.example.avalanchesnowsafety
+package com.avalanche_snow_safety.avalanchesnowsafety
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

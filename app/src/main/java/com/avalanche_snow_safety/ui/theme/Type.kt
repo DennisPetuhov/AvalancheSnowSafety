@@ -1,4 +1,4 @@
-package observation.example.avalanchesnowsafety.ui.theme
+package com.avalanche_snow_safety.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

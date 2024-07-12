@@ -1,4 +1,4 @@
-package observation.example.avalanchesnowsafety
+package com.avalanche_snow_safety.avalanchesnowsafety
 
 import org.junit.Test
 

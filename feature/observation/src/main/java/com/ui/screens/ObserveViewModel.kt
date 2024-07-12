@@ -1,4 +1,4 @@
-package observation.ui.screens
+package com.ui.screens
 
 import androidx.lifecycle.ViewModel
 
