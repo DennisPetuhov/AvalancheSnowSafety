@@ -2,6 +2,5 @@ package com.ui.screens
 
 import androidx.lifecycle.ViewModel
 
-class ObserveViewModel :ViewModel() {
-    fun foo(){}
+class ObserveViewModel : ViewModel() {
 }
