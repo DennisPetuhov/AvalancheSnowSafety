@@ -38,9 +38,14 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.navigation.common.ktx)
+    implementation(libs.androidx.animation.android)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.compose.navigation)
+    implementation(libs.timber)
 
     implementation(libs.koin.android)
     implementation (libs.koin.annotations)
