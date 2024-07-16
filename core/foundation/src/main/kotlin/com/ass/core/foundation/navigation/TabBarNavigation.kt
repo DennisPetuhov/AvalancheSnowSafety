@@ -9,19 +9,18 @@ import com.ass.core.foundation.navigation.animation.AssNavAnimations
 import com.ass.core.foundation.navigation.animation.SlidingAnimations
 import com.ass.core.foundation.navigation.builders.avalancheSnowSafetyComposable
 
-object TabBarDestinations : AssNavDestinations, AssNavAnimations by SlidingAnimations {
-    override val route = TAB_BAR
-    override val arguments: List<NamedNavArgument> = emptyList()
-}
-
-@Suppress("UNUSED_PARAMETER")
 fun NavGraphBuilder.tabBarGraph(
     navigateToDestination: (
         AssNavDestinations,
         String?,
-        (NavOptionsBuilder.() -> Unit)?
+        (NavOptionsBuilder.() -> Unit)?,
     ) -> Unit,
-    navigateByDeepLink: (Uri, (NavOptionsBuilder.() -> Unit)?) -> Unit
+    navigateByDeepLink: (Uri, (NavOptionsBuilder.() -> Unit)?) -> Unit,
 ) {
     avalancheSnowSafetyComposable(destinations = TabBarDestinations) { }
+}
+
+object TabBarDestinations : AssNavDestinations, AssNavAnimations by SlidingAnimations {
+    override val route = TAB_BAR
+    override val arguments: List<NamedNavArgument> = emptyList()
 }

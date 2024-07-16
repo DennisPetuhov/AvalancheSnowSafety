@@ -48,7 +48,6 @@ maps-compose = { module = "com.google.maps.android:maps-compose", version.ref = 
 play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-androidx-navigation-common-ktx = { group = "androidx.navigation", name = "navigation-common-ktx", version.ref = "navigationCommonKtx" }
 androidx-animation-android = { group = "androidx.compose.animation", name = "animation-android", version.ref = "animationAndroid" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "nav_version" }

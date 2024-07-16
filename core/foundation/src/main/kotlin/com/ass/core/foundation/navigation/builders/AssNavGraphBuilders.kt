@@ -13,7 +13,7 @@ fun NavGraphBuilder.avalancheSnowSafetyComposable(
     destinations: AssNavDestinations,
     arguments: List<NamedNavArgument> = destinations.arguments,
     deepLinks: List<NavDeepLink> = destinations.getDeepLinks(),
-    content: @Composable AnimatedVisibilityScope.(NavBackStackEntry) -> Unit
+    content: @Composable AnimatedVisibilityScope.(NavBackStackEntry) -> Unit,
 ) {
     composable(
         route = destinations.route,
