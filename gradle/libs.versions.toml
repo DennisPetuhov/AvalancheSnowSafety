@@ -17,7 +17,8 @@ mapsCompose = "4.3.3"
 playServicesLocation = "21.3.0"
 koin = "3.5.6"
 kspVersion = "1.9.21-1.0.16"
-material = "1.12.0"
+animationAndroid = "1.6.8"
+nav_version = "2.7.7"
 
 
 [libraries]
@@ -43,7 +44,8 @@ lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel
 maps-compose = { module = "com.google.maps.android:maps-compose", version.ref = "mapsCompose" }
 play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-animation-android = { group = "androidx.compose.animation", name = "animation-android", version.ref = "animationAndroid" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "nav_version" }
 
 
 [plugins]
