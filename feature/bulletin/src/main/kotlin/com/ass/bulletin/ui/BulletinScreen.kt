@@ -9,11 +9,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun BulletinScreen(navigateToObservationScreen: () -> Unit) {
+fun BulletinScreen(modifier: Modifier = Modifier, navigateToObservationScreen: () -> Unit) {
     Column(
-        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.fillMaxSize()
     ) {
         Text(text = "BULLETIN SCREEN")
     }

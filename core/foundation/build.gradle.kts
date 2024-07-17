@@ -40,18 +40,15 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-//    implementation(libs.androidx.material3)
     implementation(libs.androidx.animation.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.compose.navigation)
     implementation(libs.timber)
-
     implementation(libs.koin.android)
-    implementation (libs.koin.annotations)
-    ksp (libs.koin.ksp.compiler)
+    implementation(libs.koin.annotations)
+    ksp(libs.koin.ksp.compiler)
 }

@@ -14,10 +14,11 @@ import com.avalanche_snow_safety.ui.theme.AvalancheSnowSafetyTheme
 
 @Composable
 fun AvalancheSnowSafetyApp() {
-    val animatedNavController = rememberNavController()
-    val assNavController = rememberAssNavigationController(navController = animatedNavController)
-    val focusManager = LocalFocusManager.current
     AvalancheSnowSafetyTheme {
+        val animatedNavController = rememberNavController()
+        val assNavController =
+            rememberAssNavigationController(navController = animatedNavController)
+        val focusManager = LocalFocusManager.current
         AssNavHost(
             navController = animatedNavController,
             startDestination = remember { SplashScreenDestination }) {

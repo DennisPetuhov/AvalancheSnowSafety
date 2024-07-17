@@ -10,11 +10,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun SplashScreen(navigateToBulletinScreen: () -> Unit) {
+fun SplashScreen( modifier:Modifier = Modifier, navigateToBulletinScreen: () -> Unit) {
     Column(
-        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.fillMaxSize()
     ) {
         Text(text = "SPLASH SCREEN")
         Button(onClick = { navigateToBulletinScreen() }) {
