@@ -15,9 +15,9 @@ import org.koin.androidx.compose.koinViewModel
 fun BulletinScreen(
     modifier: Modifier = Modifier,
     navigateToObservationScreen: () -> Unit,
-    bulletinViewModel: BulletinViewModel =koinViewModel()
+    bulletinViewModel: BulletinViewModel = koinViewModel(),
 
-) {
+    ) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,

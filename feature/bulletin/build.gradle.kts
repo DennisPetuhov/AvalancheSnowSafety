@@ -56,7 +56,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.compose.navigation)
 //    implementation(libs.koin.android)
-    implementation ("io.insert-koin:koin-androidx-compose:3.5.6")
+    implementation (libs.koin.androidx.compose)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
     testImplementation(libs.junit)

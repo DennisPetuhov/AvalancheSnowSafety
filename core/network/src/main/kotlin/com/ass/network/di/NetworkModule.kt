@@ -11,8 +11,6 @@ import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
-import io.ktor.http.ContentType
-import io.ktor.serialization.kotlinx.KotlinxSerializationConverter
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,19 +32,20 @@ private fun Module.ktorFit() {
 
 }
 
-fun provideJson() = Json { isLenient = true; ignoreUnknownKeys = true }
+fun provideJson() = Json {
+    encodeDefaults = true
+    prettyPrint = true
+    isLenient = true
+    ignoreUnknownKeys = true
+    explicitNulls = false
+    coerceInputValues = true
+}
+
 fun provideClient(json: Json, enableNetworkLogs: Boolean = false): Ktorfit {
     val client = HttpClient(CIO) {
         defaultRequest { url(AssApi.baseUrl) }
         install(ContentNegotiation) {
-            json(Json {
-                encodeDefaults = true
-                prettyPrint = true
-                isLenient = true
-                ignoreUnknownKeys = true
-                explicitNulls = false
-                coerceInputValues = true
-            })
+            json(json = json)
         }
         if (enableNetworkLogs) {
             install(Logging) {
