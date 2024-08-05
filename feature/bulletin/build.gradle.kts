@@ -42,6 +42,8 @@ android {
 
 dependencies {
     implementation(project(":core:foundation"))
+    implementation(project(":data:bulletin"))
+    implementation(project(":core:network"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -53,7 +55,8 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.compose.navigation)
-    implementation(libs.koin.android)
+//    implementation(libs.koin.android)
+    implementation ("io.insert-koin:koin-androidx-compose:3.5.6")
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
     testImplementation(libs.junit)
@@ -63,5 +66,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
 
 }

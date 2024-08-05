@@ -1,13 +1,13 @@
 package com.ass.network.api
 
+import com.ass.network.models.AssResponse
 import de.jensklingenberg.ktorfit.http.GET
 
 interface AssApi {
-    @GET("api")
-    suspend fun fetchData()
+    @GET("json")
+    suspend fun fetchData(): AssResponse
 
     companion object {
-        //        const val baseUrl = "https://run.mocky.io/v3/"
-        const val baseUrl = "https://rickandmortyapi.com/"
+        const val baseUrl = "https://avalanche.ge/"
     }
 }

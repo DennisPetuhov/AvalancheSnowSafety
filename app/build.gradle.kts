@@ -54,6 +54,8 @@ android {
 dependencies {
     implementation(project(":feature:bulletin"))
     implementation(project(":core:foundation"))
+    implementation(project(":core:network"))
+    implementation(project(":data:bulletin"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
