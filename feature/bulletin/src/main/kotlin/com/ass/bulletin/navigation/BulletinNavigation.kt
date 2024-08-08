@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptionsBuilder
-import com.ass.bulletin.ui.BulletinScreen
+import com.ass.bulletin.ui.BulletinRoute
 import com.ass.bulletin.ui.SplashScreen
 import com.ass.core.foundation.navigation.AssNavDestinations
 import com.ass.core.foundation.navigation.Routes.BULLETIN_SCREEN
@@ -28,7 +28,7 @@ fun NavGraphBuilder.bulletinGraph(
         }
     }
     avalancheSnowSafetyComposable(destinations = BulletinScreenDestination) {
-        BulletinScreen(navigateToObservationScreen = {})
+        BulletinRoute(navigateToObservationScreen = {})
     }
 }
 

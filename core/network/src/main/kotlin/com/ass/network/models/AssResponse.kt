@@ -9,10 +9,10 @@ import kotlinx.serialization.Serializable
 data class AssResponse(
     @SerialName("current_forecast")
     val currentForecast: Forecast?,
-    @SerialName("errors")
-    val errors: List<String> = emptyList(),
-    @SerialName("forecasts")
+      @SerialName("forecasts")
     val forecasts: List<Forecast>,
     @SerialName("weather")
-    val weather: Weather
+    val weather: Weather,
+    @SerialName("errors")
+    val errors: List<String> = emptyList()
 )
