@@ -2,11 +2,16 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlinKsp)
-    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.serialization)
+    alias(libs.plugins.ktorfit)
+}
+ktorfit {}
+ksp {
+    arg("ktorfit", "true")
 }
 
 android {
-    namespace = "com.example.observation"
+    namespace = "com.example.network"
     compileSdk = 34
 
     defaultConfig {
@@ -32,33 +37,33 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeCompiler {
-        enableStrongSkippingMode = true
-    }
 }
+
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    // Ktor
+    implementation(libs.ktorfit.lib)
+    implementation(libs.ktor.client.serialization)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktorfit.converters.response)
+    implementation(libs.ktorfit.converters.call)
+    implementation(libs.ktorfit.converters.flow)
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.ktor.client.logging)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.kspApi)
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.kotlinx.serialization.json)
+
+
+
+//    implementation("io.ktor:ktor-client-core:2.3.8")
 }
