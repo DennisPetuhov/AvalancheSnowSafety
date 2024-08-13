@@ -26,6 +26,9 @@ ktor = "2.3.12"
 ktorClientContentNegotiation = "2.3.11"
 ktorClientLogging = "2.3.11"
 ktorfitLib = "2.0.0"
+datastore = "1.0.0"
+crypto-datastore = "1.0.0-beta01"
+room = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -66,6 +69,11 @@ ktorfit-converters-response = { module = "de.jensklingenberg.ktorfit:ktorfit-con
 ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfitLib" }
 kspApi = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "kspVersion" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+security-crypto-datastore-preferences = { module = "io.github.osipxd:security-crypto-datastore-preferences", version.ref = "crypto-datastore" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

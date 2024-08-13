@@ -1,10 +1,13 @@
 package com.ass.bulletin.repositories.bulletinrepository
 
+import com.ass.bulletin.domain.mappers.toEntity
+import com.ass.core.storage.dao.BulletinDao
 import com.ass.network.api.AssApi
-import com.ass.network.models.AssResponse
 
-class BulletinRepositoryImpl(private val assApi: AssApi) : BulletinRepository {
-    override suspend fun fetchBulletin(): AssResponse {
-        return assApi.fetchData()
+class BulletinRepositoryImpl(private val assApi: AssApi, private val bulletinDao: BulletinDao) :
+    BulletinRepository {
+    override suspend fun fetchBulletin() {
+        val response = assApi.fetchData().toEntity()
+        bulletinDao.insertForecast(response)
     }
 }

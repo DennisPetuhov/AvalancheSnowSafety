@@ -57,13 +57,12 @@ dependencies {
     implementation(libs.ktor.client.android)
     implementation(libs.ktor.ktor.client.logging)
     implementation(libs.ktor.client.cio)
+    //KSP
     implementation(libs.kspApi)
+    //Koin
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
+    //Serialization
     implementation(libs.kotlinx.serialization.json)
-
-
-
-//    implementation("io.ktor:ktor-client-core:2.3.8")
 }

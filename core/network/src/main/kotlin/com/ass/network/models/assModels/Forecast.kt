@@ -8,7 +8,7 @@ data class Forecast(
     @SerialName("details")
     val details: Details,
     @SerialName("file")
-    val assFile: AssFile,
+    val assFilePath: AssFilePath,
     @SerialName("hazard_ratings")
-    val hazardRatings: HazardRatings
+    val hazardRatings: HazardRatings,
 )

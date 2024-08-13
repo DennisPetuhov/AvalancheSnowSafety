@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.ass.bulletin.di.bulletinDataModule
 import com.ass.bulletin.di.bulletinFeatureModule
+import com.ass.core.storage.di.storageModule
 import com.ass.network.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -19,7 +20,8 @@ class AvalancheSnowSafetyApplication : Application() {
             modules(
                 networkModule(),
                 bulletinFeatureModule(),
-                bulletinDataModule()
+                bulletinDataModule(),
+                storageModule()
             )
         }
     }
