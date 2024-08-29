@@ -2,16 +2,11 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlinKsp)
-    alias(libs.plugins.serialization)
-    alias(libs.plugins.ktorfit)
-}
-ktorfit {}
-ksp {
-    arg("ktorfit", "true")
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "com.ass.core.network"
+    namespace = "com.ass.core.designsystem"
     compileSdk = 34
 
     defaultConfig {
@@ -37,33 +32,29 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    // Ktor
-    implementation(libs.ktorfit.lib)
-    implementation(libs.ktor.client.serialization)
-    implementation(libs.ktor.client.content.negotiation)
-    implementation(libs.ktor.serialization.kotlinx.json)
-    implementation(libs.ktorfit.converters.response)
-    implementation(libs.ktorfit.converters.call)
-    implementation(libs.ktorfit.converters.flow)
-    implementation(libs.ktor.client.android)
-    implementation(libs.ktor.ktor.client.logging)
-    implementation(libs.ktor.client.cio)
-    implementation(libs.kspApi)
-    implementation(libs.koin.android)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation (libs.koin.androidx.compose)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
-    implementation(libs.kotlinx.serialization.json)
-
-
-
-//    implementation("io.ktor:ktor-client-core:2.3.8")
 }

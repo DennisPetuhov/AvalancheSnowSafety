@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.bulletin"
+    namespace = "com.ass.core.feature.bulletin"
     compileSdk = 34
 
     defaultConfig {
