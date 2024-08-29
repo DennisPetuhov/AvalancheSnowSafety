@@ -10,7 +10,7 @@ import com.ass.bulletin.navigation.bulletinGraph
 import com.ass.core.foundation.navigation.AssNavHost
 import com.ass.core.foundation.navigation.rememberAssNavigationController
 import com.ass.core.foundation.navigation.tabBarGraph
-import com.avalanche_snow_safety.ui.theme.AvalancheSnowSafetyTheme
+import com.ass.core.designsystem.theme.AvalancheSnowSafetyTheme
 
 @Composable
 fun AvalancheSnowSafetyApp() {
