@@ -11,7 +11,7 @@ import com.ass.core.foundation.navigation.AssNavHost
 import com.ass.core.foundation.navigation.SplashScreenDestination
 import com.ass.core.foundation.navigation.rememberAssNavigationController
 import com.ass.core.foundation.navigation.tabBarGraph
-import com.ass.ui.theme.AvalancheSnowSafetyTheme
+import com.ass.core.designsystem.theme.AvalancheSnowSafetyTheme
 
 @Composable
 fun AvalancheSnowSafetyApp() {

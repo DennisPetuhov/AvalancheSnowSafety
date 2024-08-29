@@ -54,6 +54,7 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":data:bulletin"))
     implementation(project(":feature:authorization"))
+    implementation(project(":core:designsystem"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

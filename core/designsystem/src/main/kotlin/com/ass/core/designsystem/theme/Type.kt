@@ -1,4 +1,4 @@
-package com.ass.ui.theme
+package com.ass.core.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
