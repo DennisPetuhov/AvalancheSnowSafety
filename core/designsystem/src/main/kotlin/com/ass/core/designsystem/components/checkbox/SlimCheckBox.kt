@@ -70,12 +70,10 @@ fun SlimCheckBox(
                 )
                 .border(
                     width = 2.dp,
-                    color = if (isChecked) {
-                        Color.Green
-                    } else if (hasError) {
-                        Color.Red
-                    } else {
-                        Color.Blue
+                    color = when {
+                        isChecked -> Color.Green
+                        hasError -> Color.Red
+                        else -> Color.Blue
                     },
                     shape = RoundedCornerShape(size = 6.dp)
                 ),
@@ -87,7 +85,7 @@ fun SlimCheckBox(
                 exit = fadeOut()
             ) {
                 Icon(
-                    imageVector = ImageVector.vectorResource(id =  R.drawable.icon_checkbox),
+                    imageVector = ImageVector.vectorResource(id = R.drawable.icon_checkbox),
                     contentDescription = null,
                     tint = uncheckedColor
                 )

@@ -17,6 +17,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -122,24 +123,25 @@ fun SlimOutlinedInputField(
                         )
                     },
                     trailingIcon = trailingIcon,
+
                     supportingText = {
-                        Text(
-                            modifier = Modifier.offset(x = 0.5.dp),
-                            text = if (hasError) {
-                                errorText ?: ""
-                            } else {
-                                ""
-                            },
-                            color = Color.Red,
-//                            style = AssTheme.typography.small
-                        )
+                        if (hasError) {
+                            Text(
+                                modifier = Modifier.offset(x = 0.5.dp),
+                                text = errorText ?: "",
+                                color = Color.Red,
+//                                style = AssTheme.typography.small
+                            )
+                        }
                     }
                 )
             }
         )
-        if (hideKeyboard) {
-            focusManager.clearFocus()
-            onFocusClear()
+        LaunchedEffect (hideKeyboard){
+            if (hideKeyboard) {
+                focusManager.clearFocus()
+                onFocusClear()
+            }
         }
     }
 }
