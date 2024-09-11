@@ -1,0 +1,36 @@
+<resources>
+    <string name="login_headline">Log in and let\'s start</string>
+    <string name="login_button">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="email_label">Email</string>
+    <string name="name_label">Name</string>
+    <string name="second_name_label">Second Name</string>
+    <string name="phone_label">Phone</string>
+    <string name="email_hint">liv_man@7up.com</string>
+    <string name="name_hint">Johnny</string>
+    <string name="second_name_hint">BeGood</string>
+    <string name="phone_hint">7–0–7–0–7–0-7-0</string>
+    <string name="checkbox_color_change_animation">checkbox color-change animation</string>
+    <string name="field_required_error">This field is required</string>
+    <string name="checkbox_empty_snackbar">Terms of Use and Privacy Policy\nPlease read
+        and agree to our Terms of Use and Privacy Policy to continue</string>
+    <string name="email_wrong_format">Email format: example@gmail.com</string>
+    <string name="name_wrong_format">Name is too short</string>
+    <string name="second_name_wrong_format">Second name is too short</string>
+    <string name="phone_wrong_format"> Phone is too short</string>
+    <string name="avalanche_ge">Avalanche.ge</string>
+
+    <string name="alert">alert</string>
+    <string-array name="terms_and_policies_checkbox">
+        <item>I have read and agree to Our\'s\ </item>
+        <item>Terms of Use</item>
+        <item>\ and\ </item>
+        <item>Privacy Policy</item>
+        <item>.</item>
+    </string-array>
+    <string name="no_internet">No internet connection!</string>
+    <string name="phone">phone</string>
+    <string name="email">email</string>
+    <string name="name">name</string>
+    <string name="second_name">second name</string>
+</resources>

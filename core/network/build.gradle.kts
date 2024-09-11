@@ -11,7 +11,7 @@ ksp {
 }
 
 android {
-    namespace = "com.example.network"
+    namespace = "com.ass.core.network"
     compileSdk = 34
 
     defaultConfig {

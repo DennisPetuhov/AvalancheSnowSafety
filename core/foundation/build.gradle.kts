@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.foundation"
+    namespace = "com.ass.core.foundation"
     compileSdk = 34
 
     defaultConfig {
@@ -34,6 +34,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 

@@ -1,13 +1,14 @@
-package com.avalanche_snow_safety.ui.app
+package com.ass.ui.app
 
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.navigation.compose.rememberNavController
-import com.ass.bulletin.navigation.SplashScreenDestination
+import com.ass.authorization.navigation.authorizationGraph
 import com.ass.bulletin.navigation.bulletinGraph
 import com.ass.core.foundation.navigation.AssNavHost
+import com.ass.core.foundation.navigation.SplashScreenDestination
 import com.ass.core.foundation.navigation.rememberAssNavigationController
 import com.ass.core.foundation.navigation.tabBarGraph
 import com.ass.core.designsystem.theme.AvalancheSnowSafetyTheme
@@ -22,6 +23,11 @@ fun AvalancheSnowSafetyApp() {
         AssNavHost(
             navController = animatedNavController,
             startDestination = remember { SplashScreenDestination }) {
+            authorizationGraph(
+                onBack = {},
+                navigateToDestination = assNavController::navigate,
+                navigateByDeepLink = assNavController::navigate
+            )
             bulletinGraph(
                 onBack = {
                     assNavController.popBackStack(

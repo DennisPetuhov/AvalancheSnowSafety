@@ -1,10 +1,10 @@
-package com.avalanche_snow_safety
+package com.ass
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.avalanche_snow_safety.ui.app.AvalancheSnowSafetyApp
+import com.ass.ui.app.AvalancheSnowSafetyApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

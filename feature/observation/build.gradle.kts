@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.observation"
+    namespace = "com.ass.core.feature.observation"
     compileSdk = 34
 
     defaultConfig {
@@ -42,6 +42,7 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.navigation.common.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

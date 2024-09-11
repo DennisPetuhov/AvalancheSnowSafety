@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.storage"
+    namespace = "com.ass.core.storage"
     compileSdk = 34
 
     defaultConfig {
@@ -36,7 +36,6 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
