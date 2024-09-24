@@ -39,9 +39,9 @@ object Width {
 }
 
 object FontSizes {
-    val fontSizeSmall: TextUnit = 12.sp
-    val fontSizeMedium: TextUnit = 14.sp
-    val fontSizeLarge: TextUnit = 24.sp
+    val fontSize12sp: TextUnit = 12.sp
+    val fontSize14sp: TextUnit = 14.sp
+    val fontSize24sp: TextUnit = 24.sp
 }
 
 object Spacing {
@@ -53,4 +53,20 @@ object LetterSpacings {
     val by01sp: TextUnit = 0.1.sp
     val by05sp: TextUnit = 0.5.sp
     val by2sp: TextUnit = 2.sp
+}
+object CornerRadiuses {
+
+    val cornerRadius40dp = 8.dp
+}
+
+object Borders {
+    val borderThickness2dp: Dp = 2.dp
+}
+
+object Arrangements {
+    val arrangement4dp: Dp = 4.dp
+}
+
+object Offsets {
+    val offsetMiniature: Dp = (-8).dp
 }
