@@ -54,7 +54,7 @@ object LetterSpacings {
     val by05sp: TextUnit = 0.5.sp
     val by2sp: TextUnit = 2.sp
 }
-object CornerRadiuses {
+object CornerRadius {
 
     val cornerRadius40dp = 8.dp
 }
