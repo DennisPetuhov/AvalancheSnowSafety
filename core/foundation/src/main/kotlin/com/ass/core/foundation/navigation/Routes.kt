@@ -19,6 +19,7 @@ object Routes {
     const val KNOWLEDGE_SCREEN = "knowledge_screen"
     const val SPLASH_SCREEN = "splash_screen"
     const val AUTHORIZATION_SCREEN = "authorization_screen"
+    const val OBSERVATION_MAIN_SCREEN="Observation_main_screen"
 }
 
 object SplashScreenDestination : AssNavDestinations, AssNavAnimations by SlidingAnimations {

@@ -39,6 +39,7 @@ android {
 dependencies {
     implementation(project(":core:foundation"))
     implementation(project(":core:designsystem"))
+    implementation(project(":feature:app_bar"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.navigation.common.ktx)
