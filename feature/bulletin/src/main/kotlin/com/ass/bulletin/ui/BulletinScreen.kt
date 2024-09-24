@@ -27,7 +27,7 @@ fun BulletinRoute(
 fun BulletinScreen(
     navigateToObservationScreen: () -> Unit,
     fetchData: () -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier,
 ) {
     Column(
         verticalArrangement = Arrangement.Center,

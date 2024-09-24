@@ -33,4 +33,11 @@
     <string name="email">email</string>
     <string name="name">name</string>
     <string name="second_name">second name</string>
+    <string name="calendar_icon">calendar icon</string>
+    <string name="icon_name_description">icon name description</string>
+    <string name="access_time">access time</string>
+    <string name="now">Now</string>
+    <string name="name_location">Name Location</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
 </resources>
