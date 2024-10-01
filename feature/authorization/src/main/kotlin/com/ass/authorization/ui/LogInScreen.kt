@@ -50,10 +50,10 @@ fun AuthorizationRoute(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     Surface(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
     ) {
         Scaffold(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             topBar = {
                 TopBar(onBack = onBack)
             }
@@ -110,8 +110,8 @@ fun LogInScreen(
             text = "login headline",
 //                style = "AssTheme.typography.headlineSmall,",
             modifier = Modifier.padding(
-                bottom = 6.dp,
-                top = 6.dp,
+                bottom = 16.dp,
+                top = 16.dp,
             )
         )
         InputFields(
@@ -159,7 +159,7 @@ fun LogInScreen(
                 .padding(top = 6.dp)
                 .align(Alignment.CenterHorizontally),
             shape = RoundedCornerShape(size = 6.dp),
-            onClick = { },
+            onClick = { navigateToBulletinScreen()},
             contentPadding = PaddingValues(all = 6.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = colorScheme.secondary,
@@ -167,7 +167,8 @@ fun LogInScreen(
                 disabledContentColor = colorScheme.background
             ),
             content = { },
-            enabled = uiState.proceed
+//            enabled = uiState.proceed
+            enabled = true
         )
     }
 }

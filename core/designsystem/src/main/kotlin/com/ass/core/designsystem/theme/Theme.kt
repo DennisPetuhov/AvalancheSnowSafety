@@ -92,6 +92,7 @@ data class AssColors(
     val background: AssColor,
     val error: AssColor,
     val errorContainer: AssColor,
+    val transparent:AssColor
 )
 
 @Immutable
@@ -111,7 +112,8 @@ val LocalAssColors = staticCompositionLocalOf {
         outlineVariant = LightColorScheme.outlineVariant,
         background = LightColorScheme.background,
         error = LightColorScheme.error,
-        errorContainer = LightColorScheme.errorContainer
+        errorContainer = LightColorScheme.errorContainer,
+        transparent = androidx.compose.ui.graphics.Color.Transparent
     )
 }
 

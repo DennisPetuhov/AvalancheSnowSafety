@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.compose.navigation)
     implementation (libs.koin.androidx.compose)
     implementation(libs.koin.annotations)
+    implementation(project(":feature:observation"))
     ksp(libs.koin.ksp.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

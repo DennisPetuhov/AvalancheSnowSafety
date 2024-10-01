@@ -7,11 +7,12 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.navigation.compose.rememberNavController
 import com.ass.authorization.navigation.authorizationGraph
 import com.ass.bulletin.navigation.bulletinGraph
+import com.ass.core.designsystem.theme.AvalancheSnowSafetyTheme
 import com.ass.core.foundation.navigation.AssNavHost
 import com.ass.core.foundation.navigation.SplashScreenDestination
 import com.ass.core.foundation.navigation.rememberAssNavigationController
 import com.ass.core.foundation.navigation.tabBarGraph
-import com.ass.core.designsystem.theme.AvalancheSnowSafetyTheme
+import com.ass.observation.navigation.observationGraph
 
 @Composable
 fun AvalancheSnowSafetyApp() {
@@ -24,6 +25,11 @@ fun AvalancheSnowSafetyApp() {
             navController = animatedNavController,
             startDestination = remember { SplashScreenDestination }) {
             authorizationGraph(
+                onBack = {},
+                navigateToDestination = assNavController::navigate,
+                navigateByDeepLink = assNavController::navigate
+            )
+            observationGraph(
                 onBack = {},
                 navigateToDestination = assNavController::navigate,
                 navigateByDeepLink = assNavController::navigate
