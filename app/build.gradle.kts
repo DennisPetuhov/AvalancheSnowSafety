@@ -51,6 +51,7 @@ android {
 dependencies {
     implementation(project(":feature:bulletin"))
     implementation(project(":core:foundation"))
+    implementation(project(":feature:observation"))
     implementation(project(":core:network"))
     implementation(project(":data:bulletin"))
     implementation(project(":feature:authorization"))
@@ -65,7 +66,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.compose.navigation)
-    implementation(project(":feature:observation"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

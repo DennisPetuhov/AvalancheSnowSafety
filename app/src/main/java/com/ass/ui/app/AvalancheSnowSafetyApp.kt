@@ -1,6 +1,5 @@
 package com.ass.ui.app
 
-
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -12,8 +11,8 @@ import com.ass.core.designsystem.theme.AvalancheSnowSafetyTheme
 import com.ass.core.foundation.navigation.AssNavHost
 import com.ass.core.foundation.navigation.SplashScreenDestination
 import com.ass.core.foundation.navigation.rememberAssNavigationController
-import com.ass.weather.navigation.weatherGraph
 import com.ass.observation.navigation.observationGraph
+import com.ass.weather.navigation.weatherGraph
 
 @Composable
 fun AvalancheSnowSafetyApp() {
