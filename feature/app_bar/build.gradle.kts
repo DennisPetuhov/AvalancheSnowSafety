@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.bottom_bar"
+    namespace = "com.ass.core.feature.bottom_bar"
     compileSdk = 34
 
     defaultConfig {

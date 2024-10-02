@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.weather"
+    namespace = "com.ass.core.feature.weather"
     compileSdk = 34
 
     defaultConfig {
