@@ -2,6 +2,7 @@ package com.ass.ui.app
 
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.navigation.compose.rememberNavController
@@ -11,7 +12,7 @@ import com.ass.core.designsystem.theme.AvalancheSnowSafetyTheme
 import com.ass.core.foundation.navigation.AssNavHost
 import com.ass.core.foundation.navigation.SplashScreenDestination
 import com.ass.core.foundation.navigation.rememberAssNavigationController
-import com.ass.core.foundation.navigation.tabBarGraph
+import com.ass.weather.navigation.weatherGraph
 import com.ass.observation.navigation.observationGraph
 
 @Composable
@@ -21,6 +22,7 @@ fun AvalancheSnowSafetyApp() {
         val assNavController =
             rememberAssNavigationController(navController = animatedNavController)
         val focusManager = LocalFocusManager.current
+        val selectedItem = remember { mutableIntStateOf(1) }
         AssNavHost(
             navController = animatedNavController,
             startDestination = remember { SplashScreenDestination }) {
@@ -43,10 +45,18 @@ fun AvalancheSnowSafetyApp() {
                 },
                 navigateToDestination = assNavController::navigate,
                 navigateByDeepLink = assNavController::navigate,
+                selectedItem = selectedItem
             )
-            tabBarGraph(
+            weatherGraph(
+                onBack = {
+                    assNavController.popBackStack(
+                        hideKeyBoard = true,
+                        focusManager = focusManager
+                    )
+                },
                 navigateToDestination = assNavController::navigate,
                 navigateByDeepLink = assNavController::navigate,
+                selectedItem = selectedItem
             )
         }
     }

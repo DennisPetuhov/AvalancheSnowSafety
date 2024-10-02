@@ -7,7 +7,8 @@ import com.ass.authorization.ui.AuthorizationRoute
 import com.ass.authorization.ui.SplashScreenRoute
 import com.ass.core.foundation.navigation.AssNavDestinations
 import com.ass.core.foundation.navigation.AuthorizationScreenDestination
-import com.ass.core.foundation.navigation.ObservationMainScreenDestination
+import com.ass.core.foundation.navigation.BulletinScreenDestination
+import com.ass.core.foundation.navigation.Routes.AUTHORIZATION_SCREEN
 import com.ass.core.foundation.navigation.Routes.SPLASH_SCREEN
 import com.ass.core.foundation.navigation.SplashScreenDestination
 import com.ass.core.foundation.navigation.builders.avalancheSnowSafetyComposable
@@ -27,7 +28,9 @@ fun NavGraphBuilder.authorizationGraph(
     }
     avalancheSnowSafetyComposable(destinations = AuthorizationScreenDestination) {
         AuthorizationRoute(navigateToBulletinScreen = {
-            navigateToDestination(ObservationMainScreenDestination, null) {}
-        }, onBack = {})
+            navigateToDestination(BulletinScreenDestination, null) {
+                popUpTo(route = AUTHORIZATION_SCREEN) { inclusive = true }
+            }
+        })
     }
 }

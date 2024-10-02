@@ -1,12 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.kotlinKsp)
     alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "com.ass.core.feature.authorization"
+    namespace = "com.example.bottom_bar"
     compileSdk = 34
 
     defaultConfig {
@@ -39,28 +38,21 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:foundation"))
-    implementation(project(":core:designsystem"))
+
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    implementation(project(":core:designsystem"))
+    implementation(project(":core:foundation"))
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    implementation(libs.timber)
-    implementation(libs.lifecycle.viewmodel.compose)
-    implementation(libs.compose.navigation)
-    implementation (libs.koin.androidx.compose)
-    implementation(libs.koin.annotations)
-    implementation(project(":feature:observation"))
-    ksp(libs.koin.ksp.compiler)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 }

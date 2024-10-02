@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":data:bulletin"))
     implementation(project(":feature:authorization"))
     implementation(project(":core:designsystem"))
+    implementation(project(":feature:weather"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

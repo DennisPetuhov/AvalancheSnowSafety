@@ -40,4 +40,7 @@
     <string name="name_location">Name Location</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
+    <string name="weather">Weather</string>
+    <string name="bulletin">Bulletin</string>
+    <string name="knowledge">Knowledge</string>
 </resources>

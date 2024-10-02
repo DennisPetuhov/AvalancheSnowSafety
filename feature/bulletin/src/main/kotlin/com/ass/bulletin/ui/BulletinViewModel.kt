@@ -5,6 +5,7 @@ import com.ass.bulletin.repositories.bulletinrepository.BulletinRepository
 import com.ass.core.foundation.lifecycle.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import com.ass.network.models.AssResponse
 import kotlinx.coroutines.launch
 
 class BulletinViewModel(private val bulletinRepository: BulletinRepository) :
@@ -15,7 +16,7 @@ class BulletinViewModel(private val bulletinRepository: BulletinRepository) :
 
     fun fetchData() {
         viewModelScope.launch {
-            val assResponse = bulletinRepository.fetchBulletin()
+            val assResponse: AssResponse = bulletinRepository.fetchBulletin()
             println("****$assResponse")
         }
     }
