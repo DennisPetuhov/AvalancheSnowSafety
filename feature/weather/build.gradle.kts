@@ -39,14 +39,14 @@ android {
 
 dependencies {
 
+    implementation(project(":core:foundation"))
+    implementation(project(":feature:app_bar"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.navigation.common.ktx)
-    implementation(project(":core:foundation"))
-    implementation(project(":feature:app_bar"))
+    implementation(libs.androidx.navigation.common.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

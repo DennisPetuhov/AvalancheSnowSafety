@@ -51,6 +51,7 @@ android {
 dependencies {
     implementation(project(":feature:bulletin"))
     implementation(project(":core:foundation"))
+    implementation(project(":feature:observation"))
     implementation(project(":core:network"))
     implementation(project(":data:bulletin"))
     implementation(project(":feature:authorization"))
