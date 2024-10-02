@@ -1,23 +1,23 @@
-package com.ass.bulletin.navigation
+package com.ass.weather.navigation
 
 import android.net.Uri
 import androidx.compose.runtime.MutableIntState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptionsBuilder
-import com.ass.bulletin.ui.BulletinRoute
 import com.ass.core.foundation.navigation.AssNavDestinations
-import com.ass.core.foundation.navigation.BulletinScreenDestination
+import com.ass.core.foundation.navigation.WeatherScreenDestination
 import com.ass.core.foundation.navigation.builders.avalancheSnowSafetyComposable
+import com.ass.weather.ui.screens.WeatherRoute
 
 @Suppress("UNUSED_PARAMETER")
-fun NavGraphBuilder.bulletinGraph(
+fun NavGraphBuilder.weatherGraph(
     onBack: () -> Unit,
     navigateToDestination: (AssNavDestinations, String?, (NavOptionsBuilder.() -> Unit)?) -> Unit,
     navigateByDeepLink: (Uri, (NavOptionsBuilder.() -> Unit)?) -> Unit,
     selectedItem: MutableIntState
 ) {
-    avalancheSnowSafetyComposable(destinations = BulletinScreenDestination) {
-        BulletinRoute(
+    avalancheSnowSafetyComposable(destinations = WeatherScreenDestination) {
+        WeatherRoute(
             navigateByNavBar = { navigateToDestination(it, null, null) },
             selectedItem = selectedItem
         )

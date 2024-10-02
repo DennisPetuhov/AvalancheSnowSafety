@@ -46,7 +46,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    // Ktor
     implementation(libs.ktorfit.lib)
     implementation(libs.ktor.client.serialization)
     implementation(libs.ktor.client.content.negotiation)
@@ -62,8 +61,4 @@ dependencies {
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
     implementation(libs.kotlinx.serialization.json)
-
-
-
-//    implementation("io.ktor:ktor-client-core:2.3.8")
 }

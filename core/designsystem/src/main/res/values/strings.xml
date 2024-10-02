@@ -33,4 +33,7 @@
     <string name="email">email</string>
     <string name="name">name</string>
     <string name="second_name">second name</string>
+    <string name="weather">Weather</string>
+    <string name="bulletin">Bulletin</string>
+    <string name="knowledge">Knowledge</string>
 </resources>

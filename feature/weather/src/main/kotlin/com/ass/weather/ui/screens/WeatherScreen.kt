@@ -1,4 +1,4 @@
-package com.ass.bulletin.ui
+package com.ass.weather.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,17 +13,14 @@ import androidx.compose.ui.Modifier
 import com.ass.core.foundation.navigation.AssNavDestinations
 import com.ass.nav_bar.AssNavigationBar
 import com.ass.top_bar.AssTopBar
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun BulletinRoute(
+fun WeatherRoute(
     navigateByNavBar: (AssNavDestinations) -> Unit,
     selectedItem: MutableIntState,
     modifier: Modifier = Modifier,
-    viewModel: BulletinViewModel = koinViewModel(),
 ) {
     BulletinScreen(
-        fetchData = viewModel::fetchData,
         navigateByNavBar = navigateByNavBar,
         selectedItem = selectedItem,
         modifier = modifier
@@ -32,25 +29,25 @@ fun BulletinRoute(
 
 @Composable
 fun BulletinScreen(
-    fetchData: () -> Unit,
     modifier: Modifier = Modifier,
     navigateByNavBar: (AssNavDestinations) -> Unit,
     selectedItem: MutableIntState,
 ) {
-    Scaffold(
-        topBar = { AssTopBar(onBack = {}) },
-        bottomBar = {
-            AssNavigationBar(navigateByNavBar = navigateByNavBar, selectedItem = selectedItem)
-        }
+    Scaffold(topBar = { AssTopBar(onBack = {}) }, bottomBar = {
+        AssNavigationBar(
+            navigateByNavBar = navigateByNavBar,
+            selectedItem = selectedItem
+        )
+    }
     ) { paddingValues ->
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = modifier.fillMaxSize()
         ) {
-            Text(text = "BULLETIN SCREEN")
-            Button(onClick = { fetchData() }) {
-                Text(text = "Push To println Json")
+            Text(text = "WEATHER SCREEN")
+            Button(onClick = { }) {
+                Text(text = "")
             }
         }
     }

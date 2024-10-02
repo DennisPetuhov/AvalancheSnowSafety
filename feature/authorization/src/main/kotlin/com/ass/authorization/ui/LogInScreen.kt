@@ -44,7 +44,6 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun AuthorizationRoute(
     navigateToBulletinScreen: () -> Unit,
-    onBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: LogInViewModel = koinViewModel(),
 ) {
@@ -55,7 +54,7 @@ fun AuthorizationRoute(
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = {
-                TopBar(onBack = onBack)
+                TopBar(onBack = {})
             }
         ) { paddingValues ->
             Column(modifier = modifier.fillMaxSize()) {
@@ -159,7 +158,7 @@ fun LogInScreen(
                 .padding(top = 6.dp)
                 .align(Alignment.CenterHorizontally),
             shape = RoundedCornerShape(size = 6.dp),
-            onClick = { },
+            onClick = { navigateToBulletinScreen() },
             contentPadding = PaddingValues(all = 6.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = colorScheme.secondary,
@@ -167,7 +166,8 @@ fun LogInScreen(
                 disabledContentColor = colorScheme.background
             ),
             content = { },
-            enabled = uiState.proceed
+//            enabled = uiState.proceed
+            enabled = true
         )
     }
 }

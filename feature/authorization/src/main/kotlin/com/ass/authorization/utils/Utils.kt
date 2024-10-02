@@ -7,11 +7,11 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.sp
 import com.ass.authorization.ui.ActionType
 import com.ass.authorization.ui.InputType
 import com.ass.authorization.ui.LoginUiState
 import com.ass.core.designsystem.R
+import com.ass.core.designsystem.theme.LetterSpacings
 import java.util.regex.Pattern
 
 const val NAME_PATTERN = "^[A-Za-z]?$"
@@ -29,7 +29,7 @@ fun buildTermsOfUseAndPrivacyPolicySting(
         withStyle(
             style = SpanStyle(
                 fontWeight = null,
-                letterSpacing = 2.sp,
+                letterSpacing = LetterSpacings.by2sp,
                 textDecoration = TextDecoration.Underline
             )
         ) {
@@ -41,7 +41,7 @@ fun buildTermsOfUseAndPrivacyPolicySting(
         withStyle(
             style = SpanStyle(
                 fontWeight = null,
-                letterSpacing = 2.sp,
+                letterSpacing = LetterSpacings.by2sp,
                 textDecoration = TextDecoration.Underline
             )
         ) {
