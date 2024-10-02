@@ -1,24 +1,20 @@
 package com.ass.authorization.ui
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ass.authorization.utils.isValidCheckBox
 import com.ass.authorization.utils.isValidEmail
 import com.ass.authorization.utils.isValidName
 import com.ass.authorization.utils.isValidPhone
+import com.ass.core.foundation.lifecycle.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 
-class LogInViewModel() : ViewModel() {
+class LogInViewModel() : BaseViewModel<LoginUiState>() {
     private val _uiState = MutableStateFlow(LoginUiState.empty)
-    //какая практика в количестве флоу? я хотел сделать каждому  email name phone  - свой флоу и потом combine их
-//    но гдето слышал что если элементы тесно связаны - то стоит делать один. получилось мне не очень привычно  и не так удобно.
-//    прокоментируй плс по количеству флоу в таких случаях. спасибо!
-
-    val uiState: StateFlow<LoginUiState> = _uiState.stateIn(
+    override val uiState: StateFlow<LoginUiState> = _uiState.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(),
         initialValue = LoginUiState.empty

@@ -13,6 +13,7 @@ import com.ass.core.foundation.navigation.AssNavHost
 import com.ass.core.foundation.navigation.SplashScreenDestination
 import com.ass.core.foundation.navigation.rememberAssNavigationController
 import com.ass.weather.navigation.weatherGraph
+import com.ass.observation.navigation.observationGraph
 
 @Composable
 fun AvalancheSnowSafetyApp() {
@@ -30,7 +31,11 @@ fun AvalancheSnowSafetyApp() {
                 navigateToDestination = assNavController::navigate,
                 navigateByDeepLink = assNavController::navigate
             )
-
+            observationGraph(
+                onBack = {},
+                navigateToDestination = assNavController::navigate,
+                navigateByDeepLink = assNavController::navigate
+            )
             bulletinGraph(
                 onBack = {
                     assNavController.popBackStack(

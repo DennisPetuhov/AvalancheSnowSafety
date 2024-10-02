@@ -35,27 +35,30 @@ android {
     buildFeatures {
         compose = true
     }
-    composeCompiler {
-        enableStrongSkippingMode = true
-    }
 }
 dependencies {
+    implementation(project(":core:foundation"))
+    implementation(project(":core:designsystem"))
+    implementation(project(":feature:app_bar"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.navigation.common.ktx)
-    implementation(project(":core:foundation"))
-    implementation(project(":feature:app_bar"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.koin.android)
+    implementation(libs.timber)
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.compose.navigation)
+    implementation (libs.koin.androidx.compose)
     implementation(libs.koin.annotations)
+    implementation(libs.play.services.maps)
     ksp(libs.koin.ksp.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
