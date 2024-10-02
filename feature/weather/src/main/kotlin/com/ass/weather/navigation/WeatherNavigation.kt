@@ -9,7 +9,6 @@ import com.ass.core.foundation.navigation.WeatherScreenDestination
 import com.ass.core.foundation.navigation.builders.avalancheSnowSafetyComposable
 import com.ass.weather.ui.screens.WeatherRoute
 
-@Suppress("UNUSED_PARAMETER")
 fun NavGraphBuilder.weatherGraph(
     onBack: () -> Unit,
     navigateToDestination: (AssNavDestinations, String?, (NavOptionsBuilder.() -> Unit)?) -> Unit,
