@@ -19,6 +19,10 @@
     <string name="second_name_wrong_format">Second name is too short</string>
     <string name="phone_wrong_format"> Phone is too short</string>
     <string name="avalanche_ge">Avalanche.ge</string>
+    <string name="avalanche_fab">avalanche</string>
+    <string name="snowpack_fab">snowpack conditions</string>
+    <string name="weather_fab">weather</string>
+    <string name="other_fab">other</string>
 
     <string name="alert">alert</string>
     <string-array name="terms_and_policies_checkbox">
@@ -43,4 +47,7 @@
     <string name="weather">Weather</string>
     <string name="bulletin">Bulletin</string>
     <string name="knowledge">Knowledge</string>
+    <string name="main_fab_rotation">main fab rotation</string>
+    <string name="main_fab_button">main fab button</string>
+    <string name="float_icon">float icon</string>
 </resources>

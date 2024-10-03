@@ -38,7 +38,7 @@ import com.ass.authorization.utils.getErrorText
 import com.ass.core.designsystem.R
 import com.ass.core.designsystem.components.checkbox.SlimCheckBox
 import com.ass.core.designsystem.components.input.SlimOutlinedInputField
-import com.ass.core.designsystem.components.navbar.NavBar
+import com.ass.core.designsystem.components.navbar.TopBar
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -246,7 +246,7 @@ fun InputFields(
 
 @Composable
 private fun TopBar(onBack: () -> Unit) {
-    NavBar(
+    TopBar(
         modifier = Modifier.background(color = colorScheme.primary),
         navIconRes = R.drawable.icon_arrow_back,
         onNavClick = onBack,

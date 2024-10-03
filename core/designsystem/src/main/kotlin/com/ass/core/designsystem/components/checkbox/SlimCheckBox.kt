@@ -30,6 +30,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import com.ass.core.designsystem.R
+import com.ass.core.designsystem.theme.AssTheme
 
 @Composable
 fun SlimCheckBox(
@@ -94,7 +95,7 @@ fun SlimCheckBox(
         ClickableText(
             text = checkBoxLabel,
             modifier = Modifier.padding(start = 6.dp),
-//            style = AssTheme.typography.bodySmall,
+            style = AssTheme.typography.bodySmall,
             onClick = {}
         )
     }

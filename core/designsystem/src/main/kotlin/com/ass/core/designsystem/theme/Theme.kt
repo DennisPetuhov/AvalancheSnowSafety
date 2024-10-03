@@ -22,7 +22,7 @@ import androidx.compose.ui.graphics.Color as AssColor
 private val DarkColorScheme = darkColorScheme(
     primary = AccentBlue,
     secondary = BrightBlue,
-    tertiary = GreyBlue,
+    tertiary = Orange,
     outline = Grey,
     outlineVariant = Black,
     background = White,
@@ -33,7 +33,7 @@ private val DarkColorScheme = darkColorScheme(
 private val LightColorScheme = lightColorScheme(
     primary = AccentBlue,
     secondary = BrightBlue,
-    tertiary = GreyBlue,
+    tertiary = Orange,
     outline = Grey,
     outlineVariant = Black,
     background = White,
@@ -92,16 +92,24 @@ data class AssColors(
     val background: AssColor,
     val error: AssColor,
     val errorContainer: AssColor,
-    val transparent:AssColor
+    val transparent: AssColor
 )
 
 @Immutable
 data class AssTypography(
     val bodyLarge: TextStyle,
+    val labelSmall: TextStyle,
+    val bodySmall: TextStyle,
 )
 
-val LocalMiBankTypography =
-    staticCompositionLocalOf { AssTypography(bodyLarge = Typography.bodyLarge) }
+val LocalAssTypography =
+    staticCompositionLocalOf {
+        AssTypography(
+            bodyLarge = Typography.bodyLarge,
+            bodySmall = Typography.bodySmall,
+            labelSmall = Typography.labelSmall
+        )
+    }
 
 val LocalAssColors = staticCompositionLocalOf {
     AssColors(
@@ -120,7 +128,7 @@ val LocalAssColors = staticCompositionLocalOf {
 object AssTheme {
     val typography: AssTypography
         @Composable
-        get() = LocalMiBankTypography.current
+        get() = LocalAssTypography.current
     val colorScheme: AssColors
         @Composable
         get() = LocalAssColors.current

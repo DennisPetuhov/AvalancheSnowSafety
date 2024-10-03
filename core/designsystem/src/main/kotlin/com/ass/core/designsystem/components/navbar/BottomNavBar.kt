@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import com.ass.core.designsystem.theme.Paddings
 
 @Composable
-fun MainNavigationBar(
+fun BottomNavBar(
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
