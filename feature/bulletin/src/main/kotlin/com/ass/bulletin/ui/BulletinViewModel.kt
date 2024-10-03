@@ -3,10 +3,7 @@ package com.ass.bulletin.ui
 import androidx.lifecycle.viewModelScope
 import com.ass.bulletin.repositories.bulletinrepository.BulletinRepository
 import com.ass.core.foundation.lifecycle.BaseViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import com.ass.network.models.AssResponse
-import com.ass.core.foundation.lifecycle.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

@@ -5,6 +5,7 @@ import androidx.compose.runtime.MutableIntState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptionsBuilder
 import com.ass.core.foundation.navigation.AssNavDestinations
+import com.ass.core.foundation.navigation.ObservationMainScreenDestination
 import com.ass.core.foundation.navigation.WeatherScreenDestination
 import com.ass.core.foundation.navigation.builders.avalancheSnowSafetyComposable
 import com.ass.weather.ui.screens.WeatherRoute
@@ -18,6 +19,7 @@ fun NavGraphBuilder.weatherGraph(
     avalancheSnowSafetyComposable(destinations = WeatherScreenDestination) {
         WeatherRoute(
             navigateByNavBar = { navigateToDestination(it, null, null) },
+            navigateByFab = { navigateToDestination(ObservationMainScreenDestination, null, null) },
             selectedItem = selectedItem
         )
     }

@@ -19,7 +19,7 @@ import com.ass.core.designsystem.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavBar(
+fun TopBar(
     modifier: Modifier = Modifier,
     @DrawableRes navIconRes: Int? = null,
     actionIconContentColor: Color = Color.Red,

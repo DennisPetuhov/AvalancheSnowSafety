@@ -4,7 +4,6 @@ import androidx.navigation.NamedNavArgument
 import com.ass.core.foundation.navigation.Routes.AUTHORIZATION_SCREEN
 import com.ass.core.foundation.navigation.Routes.BULLETIN_SCREEN
 import com.ass.core.foundation.navigation.Routes.KNOWLEDGE_SCREEN
-import com.ass.core.foundation.navigation.Routes.OBSERVATION
 import com.ass.core.foundation.navigation.Routes.OBSERVATION_MAIN_SCREEN
 import com.ass.core.foundation.navigation.Routes.SPLASH_SCREEN
 import com.ass.core.foundation.navigation.Routes.WEATHER_SCREEN
@@ -13,13 +12,12 @@ import com.ass.core.foundation.navigation.animation.FadeAnimations
 import com.ass.core.foundation.navigation.animation.SlidingAnimations
 
 object Routes {
-    const val OBSERVATION = "observation_screen"
     const val BULLETIN_SCREEN = "bulletin_screen"
     const val WEATHER_SCREEN = "weather_screen"
     const val KNOWLEDGE_SCREEN = "knowledge_screen"
     const val SPLASH_SCREEN = "splash_screen"
     const val AUTHORIZATION_SCREEN = "authorization_screen"
-    const val OBSERVATION_MAIN_SCREEN="Observation_main_screen"
+    const val OBSERVATION_MAIN_SCREEN = "observation_main_screen"
 }
 
 object SplashScreenDestination : AssNavDestinations, AssNavAnimations by SlidingAnimations {
@@ -47,10 +45,6 @@ object WeatherScreenDestination : AssNavDestinations, AssNavAnimations by FadeAn
     override val arguments: List<NamedNavArgument> = emptyList()
 }
 
-object ObservationDestination : AssNavDestinations, AssNavAnimations by SlidingAnimations {
-    override val route = OBSERVATION
-    override val arguments: List<NamedNavArgument> = emptyList()
-}
 object ObservationMainScreenDestination : AssNavDestinations, AssNavAnimations by FadeAnimations {
     override val route: String = OBSERVATION_MAIN_SCREEN
     override val arguments: List<NamedNavArgument> = emptyList()
