@@ -93,7 +93,7 @@ open class BaseActivity : ComponentActivity() {
     }
 
     private fun requestLocationPermissions() {
-        PermissionUtils.requestLocationPermissions(this, locationPermissionLauncher)
+        PermissionUtils.requestLocationPermissions(activity = this, locationPermissionLauncher)
     }
 
     private fun openApplicationSettings() {

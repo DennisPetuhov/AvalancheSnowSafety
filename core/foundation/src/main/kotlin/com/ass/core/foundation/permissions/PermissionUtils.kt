@@ -1,4 +1,5 @@
 package com.ass.core.foundation.permissions
+
 import android.Manifest
 import android.content.Context
 import android.content.Intent
@@ -7,7 +8,6 @@ import android.net.Uri
 import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
