@@ -8,26 +8,22 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableIntState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.ass.core.designsystem.components.fab.FabButtonItem
-import com.ass.core.foundation.lifecycle.BaseActivity
 import com.ass.core.foundation.navigation.AssNavDestinations
-import com.ass.core.foundation.utils.getActivity
+import com.ass.core.foundation.permissions.PermissionUtils.RequestMultiplePermissions
 import com.ass.fab.MultiFloatingActionButton
 import com.ass.nav_bar.AssNavigationBar
 import com.ass.top_bar.AssTopBar
 import org.koin.androidx.compose.koinViewModel
+
 
 @Composable
 fun BulletinRoute(
@@ -54,15 +50,16 @@ fun BulletinScreen(
     navigateByFab: (FabButtonItem) -> Unit,
     selectedItem: MutableIntState,
 ) {
-    val context = LocalContext.current
-    val baseActivity = context.getActivity() as? BaseActivity
-    val snackBarHostState = remember { SnackbarHostState() }
+    RequestMultiplePermissions()
     Scaffold(
         topBar = { AssTopBar(onBack = {}) },
-        snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
         bottomBar = {
-            AssNavigationBar(navigateByNavBar = navigateByNavBar, selectedItem = selectedItem)
-        }, floatingActionButton = { MultiFloatingActionButton(onFabItemClicked = navigateByFab) }
+            AssNavigationBar(
+                navigateByNavBar = navigateByNavBar,
+                selectedItem = selectedItem
+            )
+        },
+        floatingActionButton = { MultiFloatingActionButton(onFabItemClicked = navigateByFab) }
     ) { paddingValues ->
         Column(
             verticalArrangement = Arrangement.Center,
@@ -78,11 +75,10 @@ fun BulletinScreen(
                 modifier = Modifier
                     .padding(paddingValues)
                     .fillMaxWidth(),
-                text = "Current Permission Status: ${baseActivity?.currentPermissionsStatus}",
+                text = "Current Permission Status:",
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold
             )
-            baseActivity?.ShowPermissionSnackBar(snackBarHostState)
         }
     }
 }

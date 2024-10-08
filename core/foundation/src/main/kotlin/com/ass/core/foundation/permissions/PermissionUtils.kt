@@ -1,76 +1,59 @@
 package com.ass.core.foundation.permissions
 
 import android.Manifest
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
-import android.provider.Settings
-import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.LifecycleOwner
 
 object PermissionUtils {
+    val permissions = arrayOf(
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION
+    )
 
-    private fun isCoarseLocationPermissionGranted(context: Context): Boolean {
-        return ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.ACCESS_COARSE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun isFineLocationPermissionGranted(context: Context): Boolean {
-        return ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-    }
-
-    fun areLocationPermissionsGranted(context: Context): Boolean {
-        return isCoarseLocationPermissionGranted(context) && isFineLocationPermissionGranted(context)
-    }
-
-    fun shouldShowPermissionRationale(activity: ComponentActivity): Boolean {
-        return activity.shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)
-    }
-
-    fun requestLocationPermissions(
-        activity: ComponentActivity,
-        launcher: ActivityResultLauncher<Array<String>>
-    ) {
-        val locationPermissions = arrayOf(
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_COARSE_LOCATION
-        )
-        launcher.launch(locationPermissions)
-    }
-
-    fun openApplicationSettings(activity: ComponentActivity) {
-        Intent(
-            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-            Uri.fromParts("package", activity.packageName, null)
-        ).also {
-            activity.startActivity(it)
-        }
-    }
-
-    fun observeLifecycleForPermissionRequest(
-        lifecycleOwner: LifecycleOwner,
-        locationPermissionsGranted: Boolean,
-        shouldShowPermissionRationale: Boolean,
-        launcher: ActivityResultLauncher<Array<String>>
-    ) {
-        val observer = LifecycleEventObserver { _, event ->
-            if (event == Lifecycle.Event.ON_START &&
-                !locationPermissionsGranted &&
-                !shouldShowPermissionRationale
-            ) {
-                requestLocationPermissions(lifecycleOwner as ComponentActivity, launcher)
+    @Composable
+    fun rememberAllPermissionsGranted(): Boolean {
+        val context = LocalContext.current
+        return remember {
+            permissions.all { permission ->
+                ContextCompat.checkSelfPermission(
+                    context,
+                    permission
+                ) == PackageManager.PERMISSION_GRANTED
             }
         }
-        lifecycleOwner.lifecycle.addObserver(observer)
+    }
+
+    @Composable
+    fun rememberLauncherForPermissions(
+        onPermissionsResult: (Map<String, Boolean>) -> Unit
+    ): ActivityResultLauncher<Array<String>> {
+        return rememberLauncherForActivityResult(
+            contract = ActivityResultContracts.RequestMultiplePermissions(),
+            onResult = onPermissionsResult
+        )
+    }
+
+    @Composable
+    fun RequestMultiplePermissions() {
+        val allPermissionsGranted = rememberAllPermissionsGranted()
+        var permissionsGranted by remember { mutableStateOf(allPermissionsGranted) }
+        val launcher = rememberLauncherForPermissions { permissionsMap ->
+            permissionsGranted = permissionsMap.values.all { it }
+        }
+        LaunchedEffect(Unit) {
+            if (!permissionsGranted) {
+                launcher.launch(permissions)
+            }
+        }
     }
 }
