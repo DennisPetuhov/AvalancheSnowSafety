@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.kotlinKsp)
-    alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "com.ass.core.foundation"
+    namespace = "com.ass.core.feature.permissions"
     compileSdk = 34
 
     defaultConfig {
@@ -32,25 +30,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-        buildConfig = true
-    }
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.animation.android)
+    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.compose.navigation)
-    implementation(libs.timber)
-    implementation(libs.koin.android)
-    implementation(libs.koin.annotations)
-    ksp(libs.koin.ksp.compiler)
-    implementation(libs.androidx.material3)
-    implementation(platform(libs.androidx.compose.bom))
 }
