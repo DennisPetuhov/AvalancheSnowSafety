@@ -68,6 +68,7 @@ fun ObservationMainScreenRoute(
                 setCurrentDate = viewModel::getCurrentDate,
                 setDateFromCalendar = viewModel::convertTimeMillisToDate,
                 confirmLocationAndTime = viewModel::confirmLocationAndDate,
+                increasePermissionsCounter = viewModel::increasePermissionCounter,
                 paddingValues = paddingValues,
                 uiState = uiState,
                 modifier = modifier
@@ -81,6 +82,7 @@ fun ObservationMainScreen(
     navigateToCommonScreen: () -> Unit,
     setDateFromCalendar: suspend (Long) -> String,
     setCurrentDate: suspend () -> String,
+    increasePermissionsCounter: () -> Unit,
     confirmLocationAndTime: (nameLocation: String, date: String) -> Unit,
     paddingValues: PaddingValues,
     uiState: ObservationScreenUiState,

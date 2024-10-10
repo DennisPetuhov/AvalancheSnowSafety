@@ -1,20 +1,25 @@
 package com.ass.observation.ui.screens.main
 
+import androidx.lifecycle.viewModelScope
 import com.ass.core.foundation.lifecycle.BaseViewModel
+import com.ass.observation.repository.ObservationRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class ObservationMainScreenViewModel(private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default) :
+class ObservationMainScreenViewModel(
+    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default,
+    private val observationRepository: ObservationRepository
+) :
     BaseViewModel<ObservationScreenUiState>() {
     private val _uiState = MutableStateFlow(ObservationScreenUiState.empty)
     override val uiState: StateFlow<ObservationScreenUiState> = _uiState
-
 
     suspend fun getCurrentDate(): String {
         return withContext(defaultDispatcher) {
@@ -28,6 +33,20 @@ class ObservationMainScreenViewModel(private val defaultDispatcher: CoroutineDis
             val date = Date(timeInMillis)
             val dateFormat = SimpleDateFormat("EEE MMM yyyy HH:mm", Locale.getDefault())
             dateFormat.format(date)
+        }
+    }
+
+    fun increasePermissionCounter() {
+        viewModelScope.launch {
+            observationRepository.increasePermissionCounter()
+        }
+    }
+
+    override fun reloadData() {
+        viewModelScope.launch {
+            observationRepository.getPermissionsCounter().collect {
+                _uiState.value = _uiState.value.copy(permissionsValue = it)
+            }
         }
     }
 

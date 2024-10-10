@@ -6,12 +6,14 @@ data class ObservationScreenUiState(
     val coordinates: LatLng?,
     val nameOfLocation: String?,
     val date: String?,
+    val permissionsValue:Int?
 ) {
     companion object {
         val empty = ObservationScreenUiState(
             coordinates = null,
             nameOfLocation = null,
-            date = null
+            date = null,
+            permissionsValue = null
         )
     }
 }

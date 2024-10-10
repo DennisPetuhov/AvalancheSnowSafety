@@ -14,6 +14,8 @@ class BulletinViewModel(private val bulletinRepository: BulletinRepository) :
     override val uiState: StateFlow<BulletinUiState>
         get() = _uiState
 
+    override fun reloadData() {}
+
     fun fetchData() {
         viewModelScope.launch {
             val assResponse: AssResponse = bulletinRepository.fetchBulletin()

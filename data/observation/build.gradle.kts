@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.ass.core.storage"
+    namespace = "com.ass.data.observation"
     compileSdk = 34
 
     defaultConfig {
@@ -35,12 +35,13 @@ android {
 
 dependencies {
 
+    implementation(project(":core:storage"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.datastore.preferences)
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
