@@ -16,7 +16,7 @@ class DataStoreManager(private val dataStore: DataStore<Preferences>) {
         }
     }
 
-    suspend fun getPermissionsCounter(default: String = ""): Flow<String> {
+     fun getPermissionsCounter(default: String = ""): Flow<String> {
         println("suspend Get Permissions Counter DATASTOREMANAGER")
         val currentCounterValue = dataStore.data.map { settings ->
             settings[COUNTER] ?: default

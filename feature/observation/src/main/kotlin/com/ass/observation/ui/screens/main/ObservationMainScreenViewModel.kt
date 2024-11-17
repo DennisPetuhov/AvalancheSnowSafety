@@ -1,7 +1,6 @@
 package com.ass.observation.ui.screens.main
 
 import androidx.compose.runtime.mutableStateListOf
-import androidx.lifecycle.viewModelScope
 import com.ass.core.foundation.lifecycle.BaseViewModel
 import com.ass.observation.repository.ObservationRepository
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
@@ -9,7 +8,6 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -44,14 +42,14 @@ class ObservationMainScreenViewModel(
 
     }
 
-//    fun deletePermissionCounter() {
+    //    fun deletePermissionCounter() {
 //        viewModelScope.launch {
 //            observationRepository.deletePermissionCounter()
 //        }
 //    }
 //
-@OptIn(ExperimentalPermissionsApi::class)
-fun confirmLocationAndDate(nameOfLocation: String, date: String) {
+    @OptIn(ExperimentalPermissionsApi::class)
+    fun confirmLocationAndDate(nameOfLocation: String, date: String) {
         _uiState.value = _uiState.value.copy(date = date, nameOfLocation = nameOfLocation)
         println("$date $nameOfLocation")
     }
@@ -67,7 +65,7 @@ fun confirmLocationAndDate(nameOfLocation: String, date: String) {
         permission: String,
         isGranted: Boolean
     ) {
-        if(!isGranted && !visiblePermissionDialogQueue.contains(permission)) {
+        if (!isGranted && !visiblePermissionDialogQueue.contains(permission)) {
             visiblePermissionDialogQueue.add(permission)
         }
     }

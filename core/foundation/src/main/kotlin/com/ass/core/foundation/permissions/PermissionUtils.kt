@@ -26,7 +26,7 @@ import com.google.accompanist.permissions.MultiplePermissionsState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 @Composable
-fun requestMultiplePermissions(setPermissionCounter: ((String) -> Unit)? = null) {
+fun RequestMultiplePermissions(setPermissionCounter: ((String) -> Unit)? = null) {
     val context = LocalContext.current
     val allPermissionsGranted = remember {
         permissions.all { permission ->
@@ -85,7 +85,7 @@ object PermissionUtils {
     }
 
     @Composable
-    fun requestMultiplePermissions(setPermissionCounter: ((String) -> Unit)? = null) {
+    fun RequestMultiplePermissions(setPermissionCounter: ((String) -> Unit)? = null) {
         val allPermissionsGranted = rememberAllPermissionsGranted()
         var permissionsGranted by remember { mutableStateOf(allPermissionsGranted) }
         val launcher = rememberLauncherForPermissions { permissionsMap ->

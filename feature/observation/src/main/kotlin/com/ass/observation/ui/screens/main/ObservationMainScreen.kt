@@ -52,14 +52,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import androidx.core.app.ActivityCompat.shouldShowRequestPermissionRationale
 import androidx.core.content.ContextCompat
 import com.ass.core.designsystem.R
 import com.ass.core.designsystem.components.input.MainTextField
-import com.ass.core.foundation.permissions.PermissionUtils
-import com.ass.core.foundation.permissions.PermissionUtils.PhilipPlinerLauncher
 import com.ass.core.foundation.permissions.PermissionUtils.permissions
-import com.ass.core.foundation.permissions.PermissionUtils.rememberAllPermissionsGranted
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import kotlinx.coroutines.launch
@@ -139,14 +135,13 @@ fun ObservationMainScreen(
 
 
     LaunchedEffect(Unit) { dateInput.value = TextFieldValue(text = setCurrentDate()) }
-    LaunchedEffect(Unit) {    multiplePermissionResultLauncher.launch(permissions.toTypedArray())}
+    LaunchedEffect(Unit) { multiplePermissionResultLauncher.launch(permissions.toTypedArray()) }
 //    PermissionUtils.requestMultiplePermissions(
 //        context,
 //        snackbarHostState,
 //        state,
 //        coroutineScope
 //    )
-
 
 
     Surface(modifier = modifier.fillMaxSize()) {
@@ -166,8 +161,6 @@ fun ObservationMainScreen(
 ////                CustomSnackBar(message = snackbarData.visuals.message)
 //                CustomSnackBar(message = "snackbarData.visuals.message")
 //            }
-
-
 
 
             dialogQueue
