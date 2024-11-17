@@ -8,5 +8,6 @@ import org.koin.dsl.module
 
 fun observationModule() = module {
     single { Dispatchers.Default }
-    viewModel { ObservationMainScreenViewModel(get()) }
+    viewModel { ObservationMainScreenViewModel(get(),get()) }
+    includes(observationDataModule())
 }

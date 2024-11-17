@@ -20,6 +20,8 @@ class LogInViewModel() : BaseViewModel<LoginUiState>() {
         initialValue = LoginUiState.empty
     )
 
+    override fun reloadData() {}
+
     fun validateInput(fieldValue: String, inputType: InputType) {
         validateUiField(fieldValue, inputType)
         proceedLogin()

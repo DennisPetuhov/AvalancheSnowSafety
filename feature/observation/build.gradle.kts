@@ -40,6 +40,7 @@ dependencies {
     implementation(project(":core:foundation"))
     implementation(project(":core:designsystem"))
     implementation(project(":feature:app_bar"))
+    implementation(project(":data:observation"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.navigation.common.ktx)
@@ -67,4 +68,5 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation (libs.accompanist.permissions)
 }

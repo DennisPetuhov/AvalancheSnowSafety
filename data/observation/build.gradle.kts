@@ -2,11 +2,10 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlinKsp)
-    alias(libs.plugins.serialization)
-    alias(libs.plugins.ktorfit)
 }
+
 android {
-    namespace = "com.ass.core.network"
+    namespace = "com.ass.data.observation"
     compileSdk = 34
 
     defaultConfig {
@@ -32,32 +31,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    ksp {
-        arg("ktorfit", "true")
-    }
-    ktorfit {}
 }
 
 dependencies {
 
+    implementation(project(":core:storage"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.ktorfit.lib)
-    implementation(libs.ktor.client.serialization)
-    implementation(libs.ktor.client.content.negotiation)
-    implementation(libs.ktor.serialization.kotlinx.json)
-    implementation(libs.ktorfit.converters.response)
-    implementation(libs.ktorfit.converters.call)
-    implementation(libs.ktorfit.converters.flow)
-    implementation(libs.ktor.client.android)
-    implementation(libs.ktor.ktor.client.logging)
-    implementation(libs.ktor.client.cio)
-    implementation(libs.kspApi)
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
-    implementation(libs.kotlinx.serialization.json)
 }
