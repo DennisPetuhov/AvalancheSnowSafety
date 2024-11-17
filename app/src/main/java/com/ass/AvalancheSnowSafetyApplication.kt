@@ -4,13 +4,18 @@ import android.app.Application
 import com.ass.authorization.di.authorizationModule
 import com.ass.bulletin.di.bulletinDataModule
 import com.ass.bulletin.di.bulletinFeatureModule
+import com.ass.core.foundation.di.foundationModule
+import com.ass.core.foundation.logger.AppInitializer
+import com.ass.di.appModule
 import com.ass.network.di.networkModule
 import com.ass.observation.di.observationModule
+import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
 class AvalancheSnowSafetyApplication : Application() {
+    private val appInitializer: AppInitializer by inject()
     override fun onCreate() {
         super.onCreate()
         startKoin {
@@ -21,8 +26,11 @@ class AvalancheSnowSafetyApplication : Application() {
                 bulletinFeatureModule(),
                 bulletinDataModule(),
                 authorizationModule(),
-                observationModule()
+                observationModule(),
+                foundationModule(),
+                appModule()
             )
         }
+        appInitializer.initialize(this)
     }
 }

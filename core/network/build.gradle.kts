@@ -5,11 +5,6 @@ plugins {
     alias(libs.plugins.serialization)
     alias(libs.plugins.ktorfit)
 }
-ktorfit {}
-ksp {
-    arg("ktorfit", "true")
-}
-
 android {
     namespace = "com.ass.core.network"
     compileSdk = 34
@@ -37,6 +32,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    ksp {
+        arg("ktorfit", "true")
+    }
+    ktorfit {}
 }
 
 dependencies {

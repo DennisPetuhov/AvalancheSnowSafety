@@ -18,7 +18,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.ass.core.designsystem.components.fab.FabButtonItem
 import com.ass.core.foundation.navigation.AssNavDestinations
-import com.ass.core.foundation.permissions.PermissionUtils.RequestMultiplePermissions
 import com.ass.fab.MultiFloatingActionButton
 import com.ass.nav_bar.AssNavigationBar
 import com.ass.top_bar.AssTopBar
@@ -50,7 +49,7 @@ fun BulletinScreen(
     navigateByFab: (FabButtonItem) -> Unit,
     selectedItem: MutableIntState,
 ) {
-    RequestMultiplePermissions()
+
     Scaffold(
         topBar = { AssTopBar(onBack = {}) },
         bottomBar = {

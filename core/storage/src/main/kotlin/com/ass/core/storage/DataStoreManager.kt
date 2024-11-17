@@ -3,24 +3,31 @@ package com.ass.core.storage
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-private val COUNTER = intPreferencesKey("counter")
+private val COUNTER = stringPreferencesKey("counter")
 
 class DataStoreManager(private val dataStore: DataStore<Preferences>) {
-    suspend fun increasePermissionCounter(default: Int = 0) {
+    suspend fun setPermissionCounter(counter: String) {
         dataStore.edit { settings ->
-            val currentCounterValue = settings[COUNTER] ?: default
-            settings[COUNTER] = currentCounterValue + 1
+            settings[COUNTER] = counter
         }
     }
 
-    suspend fun getPermissionsCounter(default: Int = 0): Flow<Int> {
+    suspend fun getPermissionsCounter(default: String = ""): Flow<String> {
+        println("suspend Get Permissions Counter DATASTOREMANAGER")
         val currentCounterValue = dataStore.data.map { settings ->
             settings[COUNTER] ?: default
         }
         return currentCounterValue
+    }
+
+    suspend fun deletePermissionCounter() {
+        println("Delete Permission Counter")
+        dataStore.edit { settings ->
+            settings.remove(COUNTER)
+        }
     }
 }

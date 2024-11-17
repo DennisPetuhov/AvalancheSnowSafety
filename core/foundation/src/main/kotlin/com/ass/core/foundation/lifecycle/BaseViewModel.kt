@@ -9,12 +9,14 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlinx.coroutines.flow.collect
 
-abstract class BaseViewModel<T>(  private val applicationLifecycleObserver: ApplicationLifecycleObserver =
-                                      DefaultApplicationLifecycleObserver) : ViewModel() {
+abstract class BaseViewModel<T>(
+    private val applicationLifecycleObserver: ApplicationLifecycleObserver =
+        DefaultApplicationLifecycleObserver
+) : ViewModel() {
     abstract val uiState: StateFlow<T>
     init {
         observeLifecycleEvents()
-    }
+       }
     private fun observeLifecycleEvents() {
         viewModelScope.launch {
             delay(LOAD_DELAY)

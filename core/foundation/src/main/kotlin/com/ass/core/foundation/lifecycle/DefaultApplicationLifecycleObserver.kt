@@ -1,4 +1,5 @@
 package com.ass.core.foundation.lifecycle
+
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle

@@ -1,8 +1,10 @@
 package com.ass.observation.ui.screens.main
 
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.viewModelScope
 import com.ass.core.foundation.lifecycle.BaseViewModel
 import com.ass.observation.repository.ObservationRepository
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,6 +20,7 @@ class ObservationMainScreenViewModel(
     private val observationRepository: ObservationRepository
 ) :
     BaseViewModel<ObservationScreenUiState>() {
+
     private val _uiState = MutableStateFlow(ObservationScreenUiState.empty)
     override val uiState: StateFlow<ObservationScreenUiState> = _uiState
 
@@ -36,22 +39,37 @@ class ObservationMainScreenViewModel(
         }
     }
 
-    fun increasePermissionCounter() {
-        viewModelScope.launch {
-            observationRepository.increasePermissionCounter()
-        }
-    }
 
     override fun reloadData() {
-        viewModelScope.launch {
-            observationRepository.getPermissionsCounter().collect {
-                _uiState.value = _uiState.value.copy(permissionsValue = it)
-            }
-        }
+
     }
 
-    fun confirmLocationAndDate(nameOfLocation: String, date: String) {
+//    fun deletePermissionCounter() {
+//        viewModelScope.launch {
+//            observationRepository.deletePermissionCounter()
+//        }
+//    }
+//
+@OptIn(ExperimentalPermissionsApi::class)
+fun confirmLocationAndDate(nameOfLocation: String, date: String) {
         _uiState.value = _uiState.value.copy(date = date, nameOfLocation = nameOfLocation)
         println("$date $nameOfLocation")
     }
+
+
+    val visiblePermissionDialogQueue = mutableStateListOf<String>()
+
+    fun dismissDialog() {
+        visiblePermissionDialogQueue.removeFirst()
+    }
+
+    fun onPermissionResult(
+        permission: String,
+        isGranted: Boolean
+    ) {
+        if(!isGranted && !visiblePermissionDialogQueue.contains(permission)) {
+            visiblePermissionDialogQueue.add(permission)
+        }
+    }
+
 }

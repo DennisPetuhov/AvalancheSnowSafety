@@ -57,6 +57,7 @@ fun AuthorizationRoute(
                 TopBar(onBack = {})
             }
         ) { paddingValues ->
+
             Column(modifier = modifier.fillMaxSize()) {
                 LogInScreen(
                     navigateToBulletinScreen = navigateToBulletinScreen,
