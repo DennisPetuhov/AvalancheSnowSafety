@@ -1,13 +1,13 @@
 package com.ass.core.designsystem.components.navbar
 
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.ass.core.designsystem.theme.Paddings
+import com.ass.core.designsystem.theme.AssTheme
+import com.ass.core.designsystem.theme.AssPaddings
 
 @Composable
 fun BottomNavBar(
@@ -16,8 +16,10 @@ fun BottomNavBar(
 ) {
     NavigationBar(
         modifier = modifier,
-        contentColor = AssNavigationDefaults.navigationContentColor(),
-        tonalElevation = Paddings.paddingNone,
+//        contentColor = AssNavigationNarColorsDefaults.navigationContentColor(),
+        contentColor = AssTheme.colorScheme.avalancheDangerLevel2,
+        containerColor =  AssNavigationNarColorsDefaults.navigationContentColor(),
+        tonalElevation = AssPaddings.padding8dp,
         content = content,
     )
 }
@@ -42,22 +44,26 @@ fun RowScope.AssNavigationBarItem(
         label = label,
         alwaysShowLabel = alwaysShowLabel,
         colors = NavigationBarItemDefaults.colors(
-            selectedIconColor = AssNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = AssNavigationDefaults.navigationContentColor(),
-            selectedTextColor = AssNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = AssNavigationDefaults.navigationContentColor(),
-            indicatorColor = AssNavigationDefaults.navigationIndicatorColor(),
+            selectedIconColor = AssNavigationNarColorsDefaults.selectedIconColor(),
+            unselectedIconColor = AssNavigationNarColorsDefaults.unselectedIconAndTextColor(),
+            selectedTextColor = AssNavigationNarColorsDefaults.selectedItemAndTextColor(),
+            unselectedTextColor = AssNavigationNarColorsDefaults.unselectedIconAndTextColor(),
+            indicatorColor = AssNavigationNarColorsDefaults.selectedItemAndTextColor(),
+
         ),
     )
 }
-
-object AssNavigationDefaults {
+object AssNavigationNarColorsDefaults {
     @Composable
-    fun navigationContentColor() = MaterialTheme.colorScheme.onSurfaceVariant
-
+    fun navigationContentColor() = AssTheme.colorScheme.primary
     @Composable
-    fun navigationSelectedItemColor() = MaterialTheme.colorScheme.onPrimaryContainer
-
+    fun navigationContainerColor() = AssTheme.colorScheme.primary
     @Composable
-    fun navigationIndicatorColor() = MaterialTheme.colorScheme.primaryContainer
+    fun selectedIconColor() = AssTheme.colorScheme.primary
+    @Composable
+    fun unselectedIconAndTextColor() = AssTheme.colorScheme.tertiary
+    @Composable
+    fun selectedItemAndTextColor() = AssTheme.colorScheme.background
+    @Composable
+    fun unselectedIndicatorColor() = AssTheme.colorScheme.secondary
 }

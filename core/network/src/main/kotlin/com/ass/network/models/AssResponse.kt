@@ -2,9 +2,10 @@ package com.ass.network.models
 
 import com.ass.network.models.assModels.Forecast
 import com.ass.network.models.assModels.Weather
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-
+@OptIn(InternalSerializationApi::class)
 @Serializable
 data class AssResponse(
     @SerialName("current_forecast")

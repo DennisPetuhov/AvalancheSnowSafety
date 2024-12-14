@@ -2,7 +2,7 @@ package com.ass.fab
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import com.ass.core.designsystem.AssIcons
+import com.ass.core.designsystem.components.icons.AssIcons
 import com.ass.core.designsystem.R
 import com.ass.core.designsystem.components.fab.AssMultiFAB
 import com.ass.core.designsystem.components.fab.FabButtonItem
@@ -22,7 +22,7 @@ fun MultiFloatingActionButton(onFabItemClicked: (FabButtonItem) -> Unit) {
                 label = stringResource(id = R.string.avalanche_fab)
             ),
             FabButtonItem(
-                iconRes = AssIcons.snowPackConditionsOutlinedFab,
+                iconRes = AssIcons.SnowPackConditionsOutlinedFab,
                 label = stringResource(id = R.string.snowpack_fab)
             ),
 

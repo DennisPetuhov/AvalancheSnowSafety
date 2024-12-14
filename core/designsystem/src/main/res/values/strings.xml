@@ -50,4 +50,22 @@
     <string name="main_fab_rotation">main fab rotation</string>
     <string name="main_fab_button">main fab button</string>
     <string name="float_icon">float icon</string>
+    <string name="avalanche_problem">avalanche problem</string>
+    <string name="high_alpine_2600m"><![CDATA[HIGH ALPINE > 2600m]]></string>
+    <string name="alpine_2000m_2600m">ALPINE 2000m-2600m</string>
+    <string name="sub_alpine_2000m"><![CDATA[SUB ALPINE < 2000m]]></string>
+    <string name="tree_dots_more_about_avalanche_icon">Tree dots more about avalanche icon</string>
+    <string name="danger_level">danger level</string>
+    <string name="forecaster">FORECASTER:</string>
+    <string name="forecast_valid_until">FORECAST VALID UNTIL:</string>
+    <string name="forecast_issued_at">FORECAST ISSUED AT:</string>
+    <string name="avalanche_problems">Avalanche Problems</string>
+    <string name="date">Date</string>
+    <string name="elevation">Elevation</string>
+    <string name="size">Size</string>
+    <string name="triggered_by">Triggered by</string>
+    <string name="aspect">Aspect</string>
+    <string name="type">Type</string>
+    <string name="collapse">Collapse</string>
+    <string name="expand">Expand</string>
 </resources>

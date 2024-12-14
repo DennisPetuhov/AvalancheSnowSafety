@@ -15,8 +15,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.ass.core.designsystem.R
 import com.ass.core.designsystem.theme.AssTheme
-import com.ass.core.designsystem.theme.CornerRadius
-import com.ass.core.designsystem.theme.Paddings
+import com.ass.core.designsystem.theme.AssCornerRadius
+import com.ass.core.designsystem.theme.AssPaddings
 
 @Composable
 fun CustomSnackBar(
@@ -33,17 +33,17 @@ fun CustomSnackBar(
 
     Snackbar(
         containerColor = containerColor,
-        shape = RoundedCornerShape(size = CornerRadius.cornerRadius40dp),
-        modifier = modifier.padding(Paddings.padding16dp),
+        shape = RoundedCornerShape(size = AssCornerRadius.cornerRadius40dp),
+        modifier = modifier.padding(AssPaddings.padding16dp),
         content = {
             Row(
                 modifier = modifier.padding(
-                    end = Paddings.padding10dp,
-                    bottom = Paddings.padding10dp
+                    end = AssPaddings.padding10dp,
+                    bottom = AssPaddings.padding10dp
                 )
             ) {
                 Icon(
-                    modifier = modifier.padding(end = Paddings.padding10dp),
+                    modifier = modifier.padding(end = AssPaddings.padding10dp),
                     painter = icon,
                     contentDescription = stringResource(R.string.alert),
                     tint = textColor
@@ -56,7 +56,7 @@ fun CustomSnackBar(
                             text = title,
                             style = AssTheme.typography.bodySmall,
                             color = textColor,
-                            modifier = Modifier.padding(bottom = Paddings.padding10dp)
+                            modifier = Modifier.padding(bottom = AssPaddings.padding10dp)
                         )
                     }
                     Text(
