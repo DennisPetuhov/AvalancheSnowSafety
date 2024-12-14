@@ -20,9 +20,9 @@ import androidx.core.view.WindowCompat
 import androidx.compose.ui.graphics.Color as AssColor
 
 private val DarkColorScheme = darkColorScheme(
-    primary = AccentBlue,
-    secondary = BrightBlue,
-    tertiary = Orange,
+    primary = PrimaryBlue,
+    secondary = SecondaryBlue,
+    tertiary = Tertiary,
     outline = Grey,
     outlineVariant = Black,
     background = White,
@@ -31,14 +31,15 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = AccentBlue,
-    secondary = BrightBlue,
-    tertiary = Orange,
+    primary = PrimaryBlue,
+    secondary = SecondaryBlue,
+    tertiary = Tertiary,
     outline = Grey,
     outlineVariant = Black,
     background = White,
     error = Red,
     errorContainer = LightRed
+
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -92,14 +93,12 @@ data class AssColors(
     val background: AssColor,
     val error: AssColor,
     val errorContainer: AssColor,
-    val transparent: AssColor
-)
-
-@Immutable
-data class AssTypography(
-    val bodyLarge: TextStyle,
-    val labelSmall: TextStyle,
-    val bodySmall: TextStyle,
+    val transparent: AssColor,
+    val avalancheDangerLevel1: AssColor,
+    val avalancheDangerLevel2: AssColor,
+    val avalancheDangerLevel3: AssColor,
+    val avalancheDangerLevel4: AssColor,
+    val onSurface: AssColor
 )
 
 val LocalAssTypography =
@@ -107,7 +106,13 @@ val LocalAssTypography =
         AssTypography(
             bodyLarge = Typography.bodyLarge,
             bodySmall = Typography.bodySmall,
-            labelSmall = Typography.labelSmall
+            labelSmall = Typography.labelSmall,
+            bodyMedium = Typography.bodyMedium,
+            titleLarge = Typography.titleLarge,
+            titleMedium = Typography.titleMedium,
+            labelLarge = Typography.labelLarge,
+            labelMedium = Typography.labelMedium,
+            titleSmall = Typography.titleSmall
         )
     }
 
@@ -121,10 +126,27 @@ val LocalAssColors = staticCompositionLocalOf {
         background = LightColorScheme.background,
         error = LightColorScheme.error,
         errorContainer = LightColorScheme.errorContainer,
-        transparent = androidx.compose.ui.graphics.Color.Transparent
+        transparent = androidx.compose.ui.graphics.Color.Transparent,
+        avalancheDangerLevel1 = AvalancheLowRisk,
+        avalancheDangerLevel2 = AvalancheModerateRisk,
+        avalancheDangerLevel3 = AvalancheConsiderableRisk,
+        avalancheDangerLevel4 = AvalancheHighRisk,
+        onSurface = LightColorScheme.onSurface
     )
 }
 
+@Immutable
+data class AssTypography(
+    val bodyLarge: TextStyle,
+    val bodyMedium: TextStyle,
+    val labelLarge: TextStyle,
+    val labelMedium: TextStyle,
+    val labelSmall: TextStyle,
+    val bodySmall: TextStyle,
+    val titleLarge: TextStyle,
+    val titleMedium: TextStyle,
+    val titleSmall: TextStyle,
+)
 object AssTheme {
     val typography: AssTypography
         @Composable

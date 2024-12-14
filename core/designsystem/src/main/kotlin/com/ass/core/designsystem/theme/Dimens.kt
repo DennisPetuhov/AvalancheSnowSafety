@@ -5,7 +5,89 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-object Paddings {
+object AssAlpha {
+    val alpha05 = 0.5f
+}
+
+object AssAngle {
+    val angle0 = 0f
+    val angle180 = 180f
+}
+
+object AssArrangements {
+    val arrangement4dp: Dp = 4.dp
+}
+
+object AssBorder {
+    val width1dp = 1.dp
+    val width2dp = 2.dp
+    val width4dp = 4.dp
+    val width8dp = 8.dp
+}
+
+object AssCornerRadius {
+    val cornerRadius16dp = 16.dp
+    val cornerRadius40dp = 40.dp
+}
+
+object AssElevation {
+    val elevation1dp = 1.dp
+    val elevation2dp = 2.dp
+    val elevation8dp = 8.dp
+}
+
+object AssFontSizes {
+    val fontSize11sp: TextUnit = 11.sp
+    val fontSize12sp: TextUnit = 12.sp
+    val fontSize14sp: TextUnit = 14.sp
+    val fontSize16sp: TextUnit = 16.sp
+    val fontSize18sp: TextUnit = 18.sp
+    val fontSize20sp: TextUnit = 20.sp
+    val fontSize22sp: TextUnit = 22.sp
+    val fontSize24sp: TextUnit = 24.sp
+}
+
+object AssFontConfig {
+    const val WEIGHT = 400
+    const val WIDTH = 30f
+    const val SLANT = -6f
+    const val ASCENDER_HEIGHT = 800f
+    const val COUNTER_WIDTH = 500
+}
+
+object AssHeights {
+    val height1dp: Dp = 1.dp
+    val height2dp: Dp = 2.dp
+    val height4dp: Dp = 4.dp
+    val height6dp: Dp = 6.dp
+    val height8dp: Dp = 8.dp
+    val height16dp: Dp = 16.dp
+}
+
+object AssLetterSpacings {
+    val by0sp: TextUnit = 0.sp
+    val by01sp: TextUnit = 0.1.sp
+    val by02sp: TextUnit = 0.2.sp
+    val by05sp: TextUnit = 0.5.sp
+    val by2sp: TextUnit = 2.sp
+}
+
+object AssShadow {
+    val shadow4dp = 4.dp
+}
+
+object AssLinedHeights {
+    val lineHeight16: TextUnit = 16.sp
+    val lineHeight20: TextUnit = 20.sp
+    val lineHeight24: TextUnit = 24.sp
+    val lineHeight32: TextUnit = 32.sp
+}
+
+object Offsets {
+    val offsetMiniature: Dp = (-8).dp
+}
+
+object AssPaddings {
     val paddingNone: Dp = 0.dp
     val padding1dp: Dp = 1.dp
     val padding2dp: Dp = 2.dp
@@ -28,20 +110,20 @@ object Paddings {
     val padding64dp: Dp = 64.dp
     val padding82dp: Dp = 82.dp
     val padding96dp: Dp = 96.dp
+    val padding100dp: Dp = 100.dp
+    val padding120dp: Dp = 120.dp
+    val padding140dp: Dp = 140.dp
+    val padding160dp: Dp = 160.dp
+    val padding180dp: Dp = 180.dp
+    val padding200dp: Dp = 200.dp
 }
 
-object Heights {
-    val height1dp: Dp = 1.dp
-}
-
-object Width {
-    val width1dp = 1.dp
-}
-
-object FontSizes {
-    val fontSize12sp: TextUnit = 12.sp
-    val fontSize14sp: TextUnit = 14.sp
-    val fontSize24sp: TextUnit = 24.sp
+object AssSize {
+    val size24dp = 24.dp
+    val size48dp = 48.dp
+    val size80dp = 80.dp
+    val size120dp = 120.dp
+    val size150dp = 150.dp
 }
 
 object Spacing {
@@ -49,24 +131,9 @@ object Spacing {
     val spacedBy8dp = 8.dp
 }
 
-object LetterSpacings {
-    val by01sp: TextUnit = 0.1.sp
-    val by05sp: TextUnit = 0.5.sp
-    val by2sp: TextUnit = 2.sp
+object Width {
+    val width1dp = 1.dp
 }
 
-object CornerRadius {
-    val cornerRadius40dp = 8.dp
-}
 
-object Borders {
-    val borderThickness2dp: Dp = 2.dp
-}
 
-object Arrangements {
-    val arrangement4dp: Dp = 4.dp
-}
-
-object Offsets {
-    val offsetMiniature: Dp = (-8).dp
-}

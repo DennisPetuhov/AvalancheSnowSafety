@@ -11,7 +11,7 @@ import com.ass.authorization.ui.ActionType
 import com.ass.authorization.ui.InputType
 import com.ass.authorization.ui.LoginUiState
 import com.ass.core.designsystem.R
-import com.ass.core.designsystem.theme.LetterSpacings
+import com.ass.core.designsystem.theme.AssLetterSpacings
 import java.util.regex.Pattern
 
 const val NAME_PATTERN = "^[A-Za-z]?$"
@@ -29,7 +29,7 @@ fun buildTermsOfUseAndPrivacyPolicySting(
         withStyle(
             style = SpanStyle(
                 fontWeight = null,
-                letterSpacing = LetterSpacings.by2sp,
+                letterSpacing = AssLetterSpacings.by2sp,
                 textDecoration = TextDecoration.Underline
             )
         ) {
@@ -41,7 +41,7 @@ fun buildTermsOfUseAndPrivacyPolicySting(
         withStyle(
             style = SpanStyle(
                 fontWeight = null,
-                letterSpacing = LetterSpacings.by2sp,
+                letterSpacing = AssLetterSpacings.by2sp,
                 textDecoration = TextDecoration.Underline
             )
         ) {

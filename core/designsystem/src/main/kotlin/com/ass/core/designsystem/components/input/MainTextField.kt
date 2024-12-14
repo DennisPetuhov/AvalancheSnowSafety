@@ -30,8 +30,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.ass.core.designsystem.theme.AssTheme
-import com.ass.core.designsystem.theme.Borders
-import com.ass.core.designsystem.theme.Paddings
+import com.ass.core.designsystem.theme.AssBorder
+import com.ass.core.designsystem.theme.AssPaddings
 import kotlinx.coroutines.delay
 
 @Composable
@@ -114,19 +114,19 @@ private fun OutLinedForm(
         interactionSource = interactionSource,
         colors = getOutlinedTextFieldColors(isBorderLess, hasError),
         contentPadding = PaddingValues(
-            start = Paddings.padding12dp,
-            end = Paddings.padding12dp,
-            top = Paddings.padding12dp,
-            bottom = Paddings.padding12dp
+            start = AssPaddings.padding12dp,
+            end = AssPaddings.padding12dp,
+            top = AssPaddings.padding12dp,
+            bottom = AssPaddings.padding12dp
         ),
         container = {
-            OutlinedTextFieldDefaults.ContainerBox(
+            OutlinedTextFieldDefaults.Container(
                 enabled = true,
                 isError = false,
                 interactionSource = interactionSource,
                 shape = RoundedCornerShape(40.dp),
-                focusedBorderThickness = Borders.borderThickness2dp,
-                unfocusedBorderThickness = Borders.borderThickness2dp,
+                focusedBorderThickness = AssBorder.width2dp,
+                unfocusedBorderThickness = AssBorder.width2dp,
                 colors = getOutlinedTextFieldColors(isBorderLess, hasError)
             )
         },
