@@ -6,8 +6,8 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.ass.core.designsystem.theme.AssTheme
 import com.ass.core.designsystem.theme.AssPaddings
+import com.ass.core.designsystem.theme.AssTheme
 
 @Composable
 fun BottomNavBar(
@@ -16,9 +16,8 @@ fun BottomNavBar(
 ) {
     NavigationBar(
         modifier = modifier,
-//        contentColor = AssNavigationNarColorsDefaults.navigationContentColor(),
         contentColor = AssTheme.colorScheme.avalancheDangerLevel2,
-        containerColor =  AssNavigationNarColorsDefaults.navigationContentColor(),
+        containerColor = AssNavigationNarColorsDefaults.navigationContentColor(),
         tonalElevation = AssPaddings.padding8dp,
         content = content,
     )
@@ -50,20 +49,20 @@ fun RowScope.AssNavigationBarItem(
             unselectedTextColor = AssNavigationNarColorsDefaults.unselectedIconAndTextColor(),
             indicatorColor = AssNavigationNarColorsDefaults.selectedItemAndTextColor(),
 
-        ),
+            ),
     )
 }
+
 object AssNavigationNarColorsDefaults {
     @Composable
     fun navigationContentColor() = AssTheme.colorScheme.primary
-    @Composable
-    fun navigationContainerColor() = AssTheme.colorScheme.primary
+
     @Composable
     fun selectedIconColor() = AssTheme.colorScheme.primary
+
     @Composable
     fun unselectedIconAndTextColor() = AssTheme.colorScheme.tertiary
+
     @Composable
     fun selectedItemAndTextColor() = AssTheme.colorScheme.background
-    @Composable
-    fun unselectedIndicatorColor() = AssTheme.colorScheme.secondary
 }

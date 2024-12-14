@@ -120,7 +120,7 @@ private fun OutLinedForm(
             bottom = AssPaddings.padding12dp
         ),
         container = {
-            OutlinedTextFieldDefaults.ContainerBox(
+            OutlinedTextFieldDefaults.Container(
                 enabled = true,
                 isError = false,
                 interactionSource = interactionSource,

@@ -32,7 +32,7 @@ fun RecentAvalanchesInformation(item: Recent) {
 
 @Composable
 fun RecentSnowPackInformation(item: Recent, modifier: Modifier = Modifier) {
-    val newItem = item as Recent.SnowPack
+    item as Recent.SnowPack
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -117,7 +117,6 @@ val recentAvalanches = Avalanches(
         )
     )
 )
-
 
 
 @Composable
