@@ -29,8 +29,43 @@ val RobotoFlex =
     }
 
 val Typography = Typography(
+    displayLarge = TextStyle(
+        fontFamily = RobotoFlex,
+        fontWeight = FontWeight.Normal,
+        fontSize = AssFontSizes.fontSize57sp,
+        lineHeight = AssLinedHeights.lineHeight64,
+        letterSpacing = AssLetterSpacings.byMinus025sp
+
+    ), displayMedium = TextStyle(
+        fontFamily = RobotoFlex,
+        fontWeight = FontWeight.Normal,
+        fontSize = AssFontSizes.fontSize52sp,
+        lineHeight = AssLinedHeights.lineHeight45,
+        letterSpacing = AssLetterSpacings.by0sp
+
+    ), displaySmall = TextStyle(
+        fontFamily = RobotoFlex,
+        fontWeight = FontWeight.Normal,
+        fontSize = AssFontSizes.fontSize36sp,
+        lineHeight = AssLinedHeights.lineHeight44,
+        letterSpacing = AssLetterSpacings.by0sp
+    ),
+
+    headlineLarge = TextStyle(
+        fontFamily = RobotoFlex,
+    ),
+
+    headlineMedium = TextStyle(
+        fontFamily = RobotoFlex,
+    ),
+
+    headlineSmall = TextStyle(
+        fontFamily = RobotoFlex,
+        fontWeight = FontWeight.Medium,
+    ),
+
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = RobotoFlex,
         fontWeight = FontWeight.ExtraBold,
         fontSize = AssFontSizes.fontSize16sp,
         lineHeight = AssLinedHeights.lineHeight24,
@@ -68,11 +103,6 @@ val Typography = Typography(
         fontSize = AssFontSizes.fontSize14sp,
         lineHeight = AssLinedHeights.lineHeight16,
         letterSpacing = AssLetterSpacings.by05sp
-    ),
-
-    headlineSmall = TextStyle(
-        fontFamily = RobotoFlex,
-        fontWeight = FontWeight.Medium,
     ),
 
     labelLarge = TextStyle(

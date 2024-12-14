@@ -1,4 +1,4 @@
-package com.ass.authorization.ui
+package com.ass.authorization.ui.screens.login
 
 sealed class ActionType {
     data object NotifyWrongFormat : ActionType()

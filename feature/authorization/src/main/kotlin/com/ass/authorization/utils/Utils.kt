@@ -7,9 +7,9 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
-import com.ass.authorization.ui.ActionType
-import com.ass.authorization.ui.InputType
-import com.ass.authorization.ui.LoginUiState
+import com.ass.authorization.ui.screens.login.ActionType
+import com.ass.authorization.ui.screens.login.InputType
+import com.ass.authorization.ui.screens.login.LoginUiState
 import com.ass.core.designsystem.R
 import com.ass.core.designsystem.theme.AssLetterSpacings
 import java.util.regex.Pattern

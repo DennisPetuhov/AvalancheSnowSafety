@@ -112,7 +112,13 @@ val LocalAssTypography =
             titleMedium = Typography.titleMedium,
             labelLarge = Typography.labelLarge,
             labelMedium = Typography.labelMedium,
-            titleSmall = Typography.titleSmall
+            titleSmall = Typography.titleSmall,
+            displayLarge = Typography.displayLarge,
+            displayMedium = Typography.displayMedium,
+            displaySmall = Typography.displaySmall,
+            headlineLarge = Typography.headlineLarge,
+            headlineMedium = Typography.headlineMedium,
+            headlineSmall = Typography.headlineSmall
         )
     }
 
@@ -137,16 +143,23 @@ val LocalAssColors = staticCompositionLocalOf {
 
 @Immutable
 data class AssTypography(
+    val displayLarge: TextStyle,
+    val displayMedium: TextStyle,
+    val displaySmall: TextStyle,
     val bodyLarge: TextStyle,
     val bodyMedium: TextStyle,
+    val bodySmall: TextStyle,
     val labelLarge: TextStyle,
     val labelMedium: TextStyle,
     val labelSmall: TextStyle,
-    val bodySmall: TextStyle,
     val titleLarge: TextStyle,
     val titleMedium: TextStyle,
     val titleSmall: TextStyle,
+    val headlineLarge: TextStyle,
+    val headlineMedium: TextStyle,
+    val headlineSmall: TextStyle
 )
+
 object AssTheme {
     val typography: AssTypography
         @Composable

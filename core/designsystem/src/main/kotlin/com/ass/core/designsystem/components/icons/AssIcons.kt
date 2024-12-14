@@ -43,4 +43,8 @@ object AssIcons {
         @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_avalanche_problem_new_snow_grey)
     val MoreAboutAvalanche: ImageVector
         @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_more_about_avalanche)
+    val AssLogoSplash: ImageVector
+        @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_zvavi_logo_large)
+    val AssLogo: ImageVector
+        @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_zvavi_logo_small)
 }

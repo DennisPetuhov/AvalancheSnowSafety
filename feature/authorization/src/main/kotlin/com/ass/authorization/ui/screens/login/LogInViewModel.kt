@@ -1,4 +1,4 @@
-package com.ass.authorization.ui
+package com.ass.authorization.ui.screens.login
 
 import androidx.lifecycle.viewModelScope
 import com.ass.authorization.utils.isValidCheckBox
@@ -13,11 +13,11 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 
 class LogInViewModel() : BaseViewModel<LoginUiState>() {
-    private val _uiState = MutableStateFlow(LoginUiState.empty)
+    private val _uiState = MutableStateFlow(LoginUiState.Companion.empty)
     override val uiState: StateFlow<LoginUiState> = _uiState.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(),
-        initialValue = LoginUiState.empty
+        initialValue = LoginUiState.Companion.empty
     )
 
     override fun reloadData() {}
