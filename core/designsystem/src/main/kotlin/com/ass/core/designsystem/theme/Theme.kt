@@ -147,7 +147,6 @@ data class AssTypography(
     val titleMedium: TextStyle,
     val titleSmall: TextStyle,
 )
-
 object AssTheme {
     val typography: AssTypography
         @Composable
