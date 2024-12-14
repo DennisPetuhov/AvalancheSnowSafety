@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-private const val SPLASH_SCREEN_DELAY = 10000L
+private const val SPLASH_SCREEN_DELAY = 100L
 
 class SplashScreenViewModel : BaseViewModel<SplashScreenUiState>() {
     init {
