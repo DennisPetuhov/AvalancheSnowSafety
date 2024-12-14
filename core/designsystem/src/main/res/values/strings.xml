@@ -68,4 +68,6 @@
     <string name="type">Type</string>
     <string name="collapse">Collapse</string>
     <string name="expand">Expand</string>
+    <string name="splash_logo">Splash Logo</string>
+    <string name="in_snow_we_trust">In Snow We Trust</string>
 </resources>

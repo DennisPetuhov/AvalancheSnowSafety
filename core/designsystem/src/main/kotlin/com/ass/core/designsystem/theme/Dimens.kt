@@ -34,6 +34,7 @@ object AssElevation {
     val elevation1dp = 1.dp
     val elevation2dp = 2.dp
     val elevation8dp = 8.dp
+    val elevation16dp = 16.dp
 }
 
 object AssFontSizes {
@@ -45,6 +46,9 @@ object AssFontSizes {
     val fontSize20sp: TextUnit = 20.sp
     val fontSize22sp: TextUnit = 22.sp
     val fontSize24sp: TextUnit = 24.sp
+    val fontSize36sp: TextUnit = 36.sp
+    val fontSize52sp: TextUnit = 52.sp
+    val fontSize57sp: TextUnit = 57.sp
 }
 
 object AssFontConfig {
@@ -65,6 +69,7 @@ object AssHeights {
 }
 
 object AssLetterSpacings {
+    val byMinus025sp: TextUnit = (-0.25).sp
     val by0sp: TextUnit = 0.sp
     val by01sp: TextUnit = 0.1.sp
     val by02sp: TextUnit = 0.2.sp
@@ -81,6 +86,9 @@ object AssLinedHeights {
     val lineHeight20: TextUnit = 20.sp
     val lineHeight24: TextUnit = 24.sp
     val lineHeight32: TextUnit = 32.sp
+    val lineHeight44: TextUnit = 44.sp
+    val lineHeight45: TextUnit = 45.sp
+    val lineHeight64: TextUnit = 64.sp
 }
 
 object Offsets {

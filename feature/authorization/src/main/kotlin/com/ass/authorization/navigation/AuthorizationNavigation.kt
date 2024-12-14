@@ -3,8 +3,8 @@ package com.ass.authorization.navigation
 import android.net.Uri
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptionsBuilder
-import com.ass.authorization.ui.AuthorizationRoute
-import com.ass.authorization.ui.SplashScreenRoute
+import com.ass.authorization.ui.screens.login.AuthorizationRoute
+import com.ass.authorization.ui.screens.splash.SplashScreenRoute
 import com.ass.core.foundation.navigation.AssNavDestinations
 import com.ass.core.foundation.navigation.AuthorizationScreenDestination
 import com.ass.core.foundation.navigation.BulletinScreenDestination

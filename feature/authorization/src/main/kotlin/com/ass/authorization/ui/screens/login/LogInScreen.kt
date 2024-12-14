@@ -1,4 +1,4 @@
-package com.ass.authorization.ui
+package com.ass.authorization.ui.screens.login
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
