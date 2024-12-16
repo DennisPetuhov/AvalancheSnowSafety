@@ -20,7 +20,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -29,9 +28,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.ass.core.designsystem.theme.AssTheme
 import com.ass.core.designsystem.theme.AssBorder
+import com.ass.core.designsystem.theme.AssCornerRadius
 import com.ass.core.designsystem.theme.AssPaddings
+import com.ass.core.designsystem.theme.AssTheme
 import kotlinx.coroutines.delay
 
 @Composable
@@ -67,6 +67,7 @@ fun MainTextField(
         keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
         maxLines = 1,
         enabled = enabled,
+        textStyle = AssTheme.typography.labelLarge,
         singleLine = true,
         value = inputFieldValue,
         onValueChange = onValueChange,
@@ -85,7 +86,7 @@ fun MainTextField(
             )
         },
         modifier = modifier
-            .background(Color.Green)
+            .background(AssTheme.colorScheme.transparent)
             .fillMaxWidth()
             .wrapContentHeight()
             .semantics { contentDescription = semanticContentDescription },
@@ -109,25 +110,25 @@ private fun OutLinedForm(
         innerTextField = innerTextField,
         singleLine = true,
         enabled = true,
-        placeholder = { Text(text = hint, color = AssTheme.colorScheme.primary) },
+        placeholder = {
+            Text(
+                text = hint,
+                style = AssTheme.typography.labelMedium.copy(color = AssTheme.colorScheme.tertiary)
+            )
+        },
         visualTransformation = VisualTransformation.None,
         interactionSource = interactionSource,
-        colors = getOutlinedTextFieldColors(isBorderLess, hasError),
-        contentPadding = PaddingValues(
-            start = AssPaddings.padding12dp,
-            end = AssPaddings.padding12dp,
-            top = AssPaddings.padding12dp,
-            bottom = AssPaddings.padding12dp
-        ),
+        colors = OutlinedTextFieldDefaults.colors(),
+        contentPadding = PaddingValues(AssPaddings.padding12dp),
         container = {
             OutlinedTextFieldDefaults.Container(
                 enabled = true,
                 isError = false,
                 interactionSource = interactionSource,
-                shape = RoundedCornerShape(40.dp),
-                focusedBorderThickness = AssBorder.width2dp,
-                unfocusedBorderThickness = AssBorder.width2dp,
-                colors = getOutlinedTextFieldColors(isBorderLess, hasError)
+                shape = RoundedCornerShape(AssCornerRadius.cornerRadius20dp),
+                focusedBorderThickness = AssBorder.width8dp,
+                unfocusedBorderThickness = AssBorder.width1dp,
+                colors = getOutlinedTextFieldColors(hasError)
             )
         },
         leadingIcon = leadingIcon,
@@ -137,7 +138,8 @@ private fun OutLinedForm(
                 Text(
                     modifier = Modifier.offset(x = 0.5.dp),
                     text = errorText ?: "",
-                    color = Color.Red,
+                    color = AssTheme.colorScheme.error,
+                    style = AssTheme.typography.labelLarge
                 )
             }
         }
@@ -145,24 +147,9 @@ private fun OutLinedForm(
 }
 
 @Composable
-private fun getOutlinedTextFieldColors(isBorderLess: Boolean, hasError: Boolean): TextFieldColors {
-    return if (isBorderLess) {
-        OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = AssTheme.colorScheme.transparent,
-            unfocusedBorderColor = AssTheme.colorScheme.transparent
-        )
-    } else {
-        OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = if (hasError) {
-                AssTheme.colorScheme.error
-            } else {
-                AssTheme.colorScheme.outline
-            },
-            unfocusedBorderColor = if (hasError) {
-                AssTheme.colorScheme.error
-            } else {
-                AssTheme.colorScheme.outline
-            }
-        )
-    }
+private fun getOutlinedTextFieldColors(hasError: Boolean): TextFieldColors {
+    return OutlinedTextFieldDefaults.colors(
+        focusedBorderColor = if (hasError) AssTheme.colorScheme.error else AssTheme.colorScheme.primary,
+        unfocusedBorderColor = if (hasError) AssTheme.colorScheme.error else AssTheme.colorScheme.secondary
+    )
 }

@@ -15,31 +15,27 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import com.ass.core.designsystem.R
+import com.ass.core.designsystem.components.icons.AssIcons
 import com.ass.core.designsystem.theme.AssTheme
 
 @Composable
 fun SlimCheckBox(
     modifier: Modifier = Modifier,
     isChecked: Boolean = false,
-    checkedColor: Color = Color.Blue,
-    uncheckedColor: Color = Color.Cyan,
+    checkedColor: Color = AssTheme.colorScheme.avalancheDangerLevel3,
+    uncheckedColor: Color = AssTheme.colorScheme.background,
     onValueChange: (Boolean) -> Unit,
-    checkBoxLabel: AnnotatedString = buildAnnotatedString {},
     hasError: Boolean = false,
     enabled: Boolean = true,
 ) {
@@ -50,13 +46,14 @@ fun SlimCheckBox(
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Start,
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 6.dp)
+            .padding(horizontal = 20.dp)
             .wrapContentHeight()
     ) {
         Box(
+            contentAlignment = Alignment.Center,
             modifier = Modifier
                 .toggleable(
                     value = isChecked,
@@ -64,7 +61,7 @@ fun SlimCheckBox(
                     role = Role.Checkbox,
                     onValueChange = onValueChange
                 )
-                .size(size = 20.dp)
+                .size(size = 24.dp)
                 .background(
                     color = checkboxColor,
                     shape = RoundedCornerShape(size = 6.dp)
@@ -72,13 +69,12 @@ fun SlimCheckBox(
                 .border(
                     width = 2.dp,
                     color = when {
-                        isChecked -> Color.Green
-                        hasError -> Color.Red
-                        else -> Color.Blue
+                        isChecked -> AssTheme.colorScheme.primary
+                        hasError -> AssTheme.colorScheme.error
+                        else -> AssTheme.colorScheme.secondary
                     },
                     shape = RoundedCornerShape(size = 6.dp)
-                ),
-            contentAlignment = Alignment.Center
+                )
         ) {
             this@Row.AnimatedVisibility(
                 visible = isChecked,
@@ -86,17 +82,15 @@ fun SlimCheckBox(
                 exit = fadeOut()
             ) {
                 Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.icon_checkbox),
+                    imageVector = AssIcons.AssCheckBox,
                     contentDescription = null,
                     tint = uncheckedColor
                 )
             }
         }
-        ClickableText(
-            text = checkBoxLabel,
-            modifier = Modifier.padding(start = 6.dp),
-            style = AssTheme.typography.bodySmall,
-            onClick = {}
+        Text(
+            text = stringResource(R.string.i_accept_this_disclaimer),
+            style = AssTheme.typography.bodyLarge
         )
     }
 }

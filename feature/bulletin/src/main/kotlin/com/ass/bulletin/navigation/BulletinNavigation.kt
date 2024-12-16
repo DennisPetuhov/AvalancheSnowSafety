@@ -20,7 +20,6 @@ fun NavGraphBuilder.bulletinGraph(
     avalancheSnowSafetyComposable(destinations = BulletinScreenDestination) {
         BulletinRoute(
             navigateByNavBar = { navigateToDestination(it, null, null) },
-            navigateByFab = { navigateToDestination(ObservationMainScreenDestination, null, null) },
             selectedItem = selectedItem
         )
     }

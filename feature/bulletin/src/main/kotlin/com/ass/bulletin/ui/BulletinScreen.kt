@@ -21,19 +21,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.ass.bulletin.ui.util.setAvalancheDangerColor
 import com.ass.bulletin.ui.util.setTheAvalancheDangerLevelDescription
-import com.ass.core.designsystem.components.icons.AssIcons
-import com.ass.core.designsystem.components.fab.FabButtonItem
-import com.ass.core.designsystem.theme.*
 import com.ass.core.designsystem.R
+import com.ass.core.designsystem.components.icons.AssIcons
+import com.ass.core.designsystem.components.navbar.AssTopBar
+import com.ass.core.designsystem.theme.*
 import com.ass.core.foundation.navigation.AssNavDestinations
 import com.ass.nav_bar.AssNavigationBar
-import com.ass.top_bar.AssTopBar
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun BulletinRoute(
     navigateByNavBar: (AssNavDestinations) -> Unit,
-    navigateByFab: (FabButtonItem) -> Unit,
     selectedItem: MutableIntState,
     modifier: Modifier = Modifier,
     viewModel: BulletinViewModel = koinViewModel(),
@@ -44,7 +42,6 @@ fun BulletinRoute(
         bottomTriangleDangerLevel = "1/4",
         fetchData = viewModel::fetchData,
         navigateByNavBar = navigateByNavBar,
-        navigateByFab = navigateByFab,
         selectedItem = selectedItem,
         modifier = modifier
     )
@@ -58,12 +55,11 @@ fun BulletinScreen(
     fetchData: () -> Unit,
     modifier: Modifier = Modifier,
     navigateByNavBar: (AssNavDestinations) -> Unit,
-    navigateByFab: (FabButtonItem) -> Unit,
     selectedItem: MutableIntState,
 ) {
     val scrollState = rememberScrollState()
     Scaffold(
-        topBar = { AssTopBar(onBack = {}) },
+        topBar = { AssTopBar(titleText = R.string.bulletin, onNavClick = {}) },
         bottomBar = { AssNavigationBar(navigateByNavBar, selectedItem) },
         modifier = modifier.fillMaxSize()
     ) { paddingValues ->
@@ -134,7 +130,6 @@ fun BulletinPreview() {
         bottomTriangleDangerLevel = "1/4",
         fetchData = {},
         navigateByNavBar = {},
-        navigateByFab = {},
         selectedItem = remember { mutableIntStateOf(1) }
     )
 }
