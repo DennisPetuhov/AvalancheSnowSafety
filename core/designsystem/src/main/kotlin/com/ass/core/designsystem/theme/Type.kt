@@ -123,7 +123,7 @@ val Typography = Typography(
         fontFamily = RobotoFlex,
         fontWeight = FontWeight.Normal,
         fontSize = AssFontSizes.fontSize11sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+        lineHeight = AssLinedHeights.lineHeight16,
+        letterSpacing = AssLetterSpacings.by05sp
     )
 )

@@ -27,6 +27,8 @@ object AssBorder {
 
 object AssCornerRadius {
     val cornerRadius16dp = 16.dp
+    val cornerRadius20dp = 20.dp
+    val cornerRadius32dp = 32.dp
     val cornerRadius40dp = 40.dp
 }
 
@@ -92,7 +94,7 @@ object AssLinedHeights {
 }
 
 object Offsets {
-    val offsetMiniature: Dp = (-8).dp
+    val offsetMinus8dp: Dp = (-8).dp
 }
 
 object AssPaddings {
@@ -134,7 +136,7 @@ object AssSize {
     val size150dp = 150.dp
 }
 
-object Spacing {
+object AssSpacing {
     val spacedBy2dp = 2.dp
     val spacedBy8dp = 8.dp
 }

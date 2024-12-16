@@ -11,10 +11,12 @@ import androidx.compose.runtime.MutableIntState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.ass.core.designsystem.components.fab.FabButtonItem
+import com.ass.core.designsystem.components.navbar.AssTopBar
 import com.ass.core.foundation.navigation.AssNavDestinations
 import com.ass.fab.MultiFloatingActionButton
 import com.ass.nav_bar.AssNavigationBar
-import com.ass.top_bar.AssTopBar
+import com.ass.core.designsystem.R
+
 
 @Composable
 fun WeatherRoute(
@@ -39,7 +41,7 @@ fun WeatherScreen(
     selectedItem: MutableIntState,
 
     ) {
-    Scaffold(topBar = { AssTopBar(onBack = {}) }, bottomBar = {
+    Scaffold(topBar = { AssTopBar(onNavClick = {}, titleText = R.string.weather) }, bottomBar = {
         AssNavigationBar(
             navigateByNavBar = navigateByNavBar,
             selectedItem = selectedItem

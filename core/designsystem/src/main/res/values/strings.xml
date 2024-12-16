@@ -1,7 +1,6 @@
 <resources>
     <string name="login_headline">Log in and let\'s start</string>
     <string name="login_button">Log in</string>
-    <string name="sign_up">Sign up</string>
     <string name="email_label">Email</string>
     <string name="name_label">Name</string>
     <string name="second_name_label">Second Name</string>
@@ -70,4 +69,7 @@
     <string name="expand">Expand</string>
     <string name="splash_logo">Splash Logo</string>
     <string name="in_snow_we_trust">In Snow We Trust</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="i_accept_this_disclaimer">I accept this disclaimer</string>
+    <string name="disclaimer">Our avalanche forecasters are internationally qualified and experienced professionals, and data is provided by skilled observers. We encourage you to make your own observations and decisions, without relying solely on our forecast, since any forecast is a generalised \'best guess\', and in certain cases it might be inaccurate. We can not be held liable for any actions you take in the backcountry that may result in injury, loss or death.</string>
 </resources>
