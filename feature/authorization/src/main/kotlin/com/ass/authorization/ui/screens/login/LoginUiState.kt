@@ -9,9 +9,6 @@ data class LoginUiState(
     val proceed: Boolean,
     val checkBox: InputWrapper,
 ) {
-    // такая инициализация не моя  - пропустил техлидом когда я был в лабе.компайньон обджект статика - храниться  в метаспейс
-    // - насколько правильно так инициализировать?
-//    возможно есть предложеня как улучшить LoginUiState или гдето почитать полезную инфу как их делать??
     companion object {
         val empty = LoginUiState(
             email = InputWrapper("", ActionType.None, false),

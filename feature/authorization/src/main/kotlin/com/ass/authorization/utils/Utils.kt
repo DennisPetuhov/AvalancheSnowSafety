@@ -16,6 +16,7 @@ import java.util.regex.Pattern
 
 const val NAME_PATTERN = "^[A-Za-z]?$"
 const val PHONE_PATTERN = "^[0-9]{6,}$"
+const val SPLASH_SCREEN_DELAY = 2000L
 fun buildTermsOfUseAndPrivacyPolicySting(
     agreementStatement: String,
     termsOfUse: String,

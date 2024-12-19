@@ -1,6 +1,7 @@
 package com.ass.authorization.ui.screens.splash
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,22 +21,26 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import com.ass.authorization.utils.SPLASH_SCREEN_DELAY
 import com.ass.core.designsystem.R
 import com.ass.core.designsystem.components.icons.AssIcons
 import com.ass.core.designsystem.theme.AssElevation
 import com.ass.core.designsystem.theme.AssPaddings
 import com.ass.core.designsystem.theme.AssTheme
+import kotlinx.coroutines.delay
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SplashScreenRoute(
     navigateToAuthorizationScreen: () -> Unit,
+    navigateToBulletinScreen: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SplashScreenViewModel = koinViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsState()
     SplashScreen(
         navigateToAuthorizationScreen = navigateToAuthorizationScreen,
+        navigateToBulletinScreen = navigateToBulletinScreen,
         uiState = uiState,
         modifier = modifier
     )
@@ -44,13 +49,13 @@ fun SplashScreenRoute(
 @Composable
 fun SplashScreen(
     navigateToAuthorizationScreen: () -> Unit,
+    navigateToBulletinScreen: () -> Unit,
     uiState: SplashScreenUiState,
     modifier: Modifier = Modifier
 ) {
-    LaunchedEffect(uiState.isLoading) {
-        if (!uiState.isLoading) {
-            navigateToAuthorizationScreen()
-        }
+    LaunchedEffect(uiState.alreadyAuthorized) {
+        delay(SPLASH_SCREEN_DELAY)
+        if (uiState.alreadyAuthorized) navigateToBulletinScreen() else navigateToAuthorizationScreen()
     }
     Surface(modifier = modifier.fillMaxSize()) {
         Box(
@@ -72,7 +77,7 @@ fun SplashScreen(
                             shape = CircleShape,
                             spotColor = AssTheme.colorScheme.primary,
                             ambientColor = AssTheme.colorScheme.secondary
-                        )
+                        ).clickable(onClick = { navigateToBulletinScreen() })
                 )
                 Spacer(modifier = Modifier.padding(AssPaddings.padding16dp))
                 Text(
