@@ -2,56 +2,15 @@ package com.ass.authorization.utils
 
 
 import android.util.Patterns.EMAIL_ADDRESS
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.withStyle
 import com.ass.authorization.ui.screens.login.ActionType
 import com.ass.authorization.ui.screens.login.InputType
 import com.ass.authorization.ui.screens.login.LoginUiState
 import com.ass.core.designsystem.R
-import com.ass.core.designsystem.theme.AssLetterSpacings
 import java.util.regex.Pattern
 
 const val NAME_PATTERN = "^[A-Za-z]?$"
 const val PHONE_PATTERN = "^[0-9]{6,}$"
-fun buildTermsOfUseAndPrivacyPolicySting(
-    agreementStatement: String,
-    termsOfUse: String,
-    conjunction: String,
-    privacyPolicy: String,
-    dot: String,
-): AnnotatedString {
-    return buildAnnotatedString {
-        append(agreementStatement)
-        pushStringAnnotation(tag = termsOfUse, annotation = "")
-        withStyle(
-            style = SpanStyle(
-                fontWeight = null,
-                letterSpacing = AssLetterSpacings.by2sp,
-                textDecoration = TextDecoration.Underline
-            )
-        ) {
-            append(termsOfUse)
-        }
-        pop()
-        append(conjunction)
-        pushStringAnnotation(tag = privacyPolicy, annotation = "")
-        withStyle(
-            style = SpanStyle(
-                fontWeight = null,
-                letterSpacing = AssLetterSpacings.by2sp,
-                textDecoration = TextDecoration.Underline
-            )
-        ) {
-            append(privacyPolicy)
-        }
-        pop()
-        append(dot)
-    }
-}
-
+const val SPLASH_SCREEN_DELAY = 2000L
 fun getErrorText(actionType: ActionType?, inputType: InputType): Int? {
     return if (actionType == ActionType.NotifyWrongFormat) {
         when (inputType) {

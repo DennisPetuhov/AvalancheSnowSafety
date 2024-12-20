@@ -24,7 +24,7 @@ fun NavGraphBuilder.authorizationGraph(
             navigateToDestination(AuthorizationScreenDestination, null) {
                 popUpTo(route = SPLASH_SCREEN) { inclusive = true }
             }
-        })
+        }, navigateToBulletinScreen = { navigateToDestination(BulletinScreenDestination, null) {} })
     }
     avalancheSnowSafetyComposable(destinations = AuthorizationScreenDestination) {
         AuthorizationRoute(navigateToBulletinScreen = {

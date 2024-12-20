@@ -54,16 +54,15 @@ fun AuthorizationRoute(
     ) {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
-            topBar = {
-                TopBar()
-            }
+            topBar = { TopBar() }
         ) { paddingValues ->
             LogInScreen(
                 navigateToBulletinScreen = navigateToBulletinScreen,
                 uiState = uiState,
                 modifier = modifier,
                 validateInput = viewModel::validateInput,
-                paddingValues = paddingValues
+                saveUser = viewModel::saveUser,
+                paddingValues = paddingValues,
             )
         }
     }
@@ -71,6 +70,7 @@ fun AuthorizationRoute(
 
 @Composable
 fun LogInScreen(
+    saveUser: (name: String, secondName: String, email: String, phone: String) -> Unit,
     navigateToBulletinScreen: () -> Unit,
     validateInput: (String, InputType) -> Unit,
     modifier: Modifier = Modifier,
@@ -78,7 +78,6 @@ fun LogInScreen(
     paddingValues: PaddingValues,
 ) {
     var checked by remember { mutableStateOf(value = false) }
-
     var emailInput by rememberSaveable(stateSaver = TextFieldValue.Saver) {
         mutableStateOf(TextFieldValue(text = ""))
     }
@@ -88,7 +87,6 @@ fun LogInScreen(
     var secondNameInput by rememberSaveable(stateSaver = TextFieldValue.Saver) {
         mutableStateOf(TextFieldValue(text = ""))
     }
-
     var phoneInput by rememberSaveable(stateSaver = TextFieldValue.Saver) {
         mutableStateOf(TextFieldValue(text = ""))
     }
@@ -152,7 +150,15 @@ fun LogInScreen(
                     .padding(horizontal = 60.dp)
                     .align(Alignment.CenterHorizontally),
                 shape = RoundedCornerShape(size = AssCornerRadius.cornerRadius32dp),
-                onClick = { navigateToBulletinScreen() },
+                onClick = {
+                    saveUser(
+                        nameInput.text,
+                        secondNameInput.text,
+                        emailInput.text,
+                        phoneInput.text
+                    )
+                    navigateToBulletinScreen()
+                },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = AssTheme.colorScheme.avalancheDangerLevel3,
                     disabledContainerColor = AssTheme.colorScheme.secondary.copy(alpha = AssAlpha.alpha05),
@@ -164,8 +170,7 @@ fun LogInScreen(
                         style = AssTheme.typography.labelLarge
                     )
                 },
-//            enabled = uiState.proceed
-                enabled = true
+                enabled = uiState.proceed
             )
         }
     }
@@ -182,9 +187,8 @@ fun InputFields(
     onValueChangeSecondName: (TextFieldValue) -> Unit,
     onValueChangePhone: (TextFieldValue) -> Unit,
     onValueChangeEmail: (TextFieldValue) -> Unit,
-    errorData: LoginUiState,
-
-    ) {
+    errorData: LoginUiState
+) {
     var hideKeyboard by remember { mutableStateOf(value = false) }
     SlimOutlinedInputField(
         inputFieldValue = nameInput,
@@ -257,9 +261,9 @@ private fun TopBar() {
 fun LogInScreenPreview() {
     LogInScreen(
         navigateToBulletinScreen = {},
-        validateInput = { input, inputType -> /* Provide a proper implementation here */ },
+        validateInput = { input, inputType -> },
         uiState = LoginUiState.empty,
         paddingValues = PaddingValues(0.dp),
+        saveUser = { name, secondName, email, phone -> },
     )
-
 }

@@ -1,18 +1,29 @@
 package com.ass.authorization.ui.screens.login
 
 import androidx.lifecycle.viewModelScope
+import com.ass.authorization.domain.models.AssUser
+import com.ass.authorization.repository.AuthorizationRepository
 import com.ass.authorization.utils.isValidCheckBox
 import com.ass.authorization.utils.isValidEmail
 import com.ass.authorization.utils.isValidName
 import com.ass.authorization.utils.isValidPhone
 import com.ass.core.foundation.lifecycle.BaseViewModel
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class LogInViewModel() : BaseViewModel<LoginUiState>() {
+class LogInViewModel(
+    private val authorizationRepository: AuthorizationRepository,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
+) :
+    BaseViewModel<LoginUiState>() {
     private val _uiState = MutableStateFlow(LoginUiState.Companion.empty)
     override val uiState: StateFlow<LoginUiState> = _uiState.stateIn(
         scope = viewModelScope,
@@ -23,11 +34,25 @@ class LogInViewModel() : BaseViewModel<LoginUiState>() {
     override fun reloadData() {}
 
     fun validateInput(fieldValue: String, inputType: InputType) {
-        validateUiField(fieldValue, inputType)
+        validateUiFields(fieldValue, inputType)
         proceedLogin()
     }
+    fun saveUser(name: String, secondName: String, email: String, phone: String) {
+        viewModelScope.launch {
+            withContext(ioDispatcher) {
+                authorizationRepository.setUser(
+                    AssUser(
+                        name = name,
+                        secondName = secondName,
+                        email = email,
+                        phone = phone
+                    )
+                )
+            }
+        }
+    }
 
-    private fun validateUiField(field: String, inputType: InputType) {
+    private fun validateUiFields(field: String, inputType: InputType) {
         when (inputType) {
             InputType.EMAIL -> validateField(
                 field, _uiState.value, ::isValidEmail, LoginUiState::email
