@@ -17,7 +17,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import com.ass.bulletin.domain.models.BulletinMetadata
 import com.ass.bulletin.ui.util.BulletinDoubleColumnText
 import com.ass.core.designsystem.R
@@ -28,7 +27,7 @@ import com.ass.core.designsystem.theme.AssPaddings
 import com.ass.core.designsystem.theme.AssTheme
 
 @Composable
-fun BulletinMetaInfo(bulletinMetadata:BulletinMetadata, modifier: Modifier = Modifier) {
+fun BulletinMetaInfo(bulletinMetadata: BulletinMetadata, modifier: Modifier = Modifier) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,

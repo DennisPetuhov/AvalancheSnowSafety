@@ -18,7 +18,6 @@ import com.ass.network.models.assModels.HazardRatingsResponse
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
-@RequiresApi(Build.VERSION_CODES.O)
 fun AssResponse.toEntity(): AssBulletinEntity {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX")
     val displayFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm")

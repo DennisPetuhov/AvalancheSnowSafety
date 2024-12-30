@@ -43,7 +43,7 @@ fun AvalancheProblems(uiState: BulletinUiState, modifier: Modifier) {
         SetAvalancheProblemIcons(uiState.avalancheProblems, modifier)
         Spacer(modifier = modifier.padding(AssPaddings.padding12dp))
         AssExpandableText(
-            fieldName = stringResource(com.ass.core.feature.bulletin.R.string.recent_avalanches),
+            fieldName = stringResource(R.string.recent_avalanches),
             uiState = uiState,
             isExpanded = expandedStateAvalanche,
             onExpandedChange = { expandedStateAvalanche = it },
@@ -52,7 +52,7 @@ fun AvalancheProblems(uiState: BulletinUiState, modifier: Modifier) {
         )
         Spacer(modifier = modifier.padding(AssPaddings.padding1dp))
         AssExpandableText(
-            fieldName = stringResource(com.ass.core.feature.bulletin.R.string.snowpack),
+            fieldName = stringResource(R.string.snowpack),
             uiState = uiState,
             isExpanded = expandedStateSnowPack,
             onExpandedChange = { expandedStateSnowPack = it },
@@ -61,7 +61,7 @@ fun AvalancheProblems(uiState: BulletinUiState, modifier: Modifier) {
         )
         Spacer(modifier = modifier.padding(AssPaddings.padding1dp))
         AssExpandableText(
-            fieldName = stringResource(com.ass.core.feature.bulletin.R.string.weather),
+            fieldName = stringResource(R.string.weather),
             uiState = uiState,
             isExpanded = expandedStateWeather,
             onExpandedChange = { expandedStateWeather = it },
