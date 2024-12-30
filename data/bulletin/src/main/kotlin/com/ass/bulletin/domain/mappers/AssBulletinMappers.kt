@@ -1,7 +1,5 @@
 package com.ass.bulletin.domain.mappers
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.ass.bulletin.domain.models.AssBulletin
 import com.ass.bulletin.domain.models.AvalancheProblem
 import com.ass.bulletin.domain.models.BulletinMetadata
@@ -34,7 +32,7 @@ fun AssResponse.toEntity(): AssBulletinEntity {
         recentAvalanches = this.currentForecast?.forecast?.recentObservations?.en?.toListOfRecentAvalancheEntity()
             ?: emptyList(),
         snowPack = this.currentForecast?.forecast?.recentObservations?.en?.parseToSnowpackString()
-                       ?: "",
+            ?: "",
         weather = this.currentForecast?.forecast?.weatherForecast?.en ?: "",
         issuedAt = IssuedAtEntity(
             time = time.format(displayFormatter),
@@ -94,8 +92,12 @@ fun AssBulletinEntity.toDomain(): AssBulletin {
     )
 }
 
-fun List<AvalancheProblemEntity>.toAvalancheProblemDomainDomain(): List<AvalancheProblem> = this.map { it.toDomain() }
-fun List<RecentAvalancheEntity>.toRecentAvalancheDomain(): List<RecentAvalanche> = this.map { it.toDomain() }
+fun List<AvalancheProblemEntity>.toAvalancheProblemDomainDomain(): List<AvalancheProblem> =
+    this.map { it.toDomain() }
+
+fun List<RecentAvalancheEntity>.toRecentAvalancheDomain(): List<RecentAvalanche> =
+    this.map { it.toDomain() }
+
 fun RecentAvalancheEntity.toDomain(): RecentAvalanche {
     return RecentAvalanche(
         date = this.date,
