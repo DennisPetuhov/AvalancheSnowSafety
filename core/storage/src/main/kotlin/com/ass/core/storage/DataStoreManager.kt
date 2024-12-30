@@ -1,3 +1,5 @@
+@file:OptIn(InternalSerializationApi::class)
+
 package com.ass.core.storage
 
 import androidx.datastore.core.DataStore
@@ -8,6 +10,7 @@ import com.ass.core.storage.entity.AssUserEntity
 import com.ass.core.storage.entity.AssUserEntity.Companion.EMPTY_USER
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 

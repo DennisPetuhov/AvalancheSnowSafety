@@ -10,7 +10,7 @@ data class Overall(
     val confidence: String?,
     @SerialName("trend")
     //не поазываеться в общем
-    val trend: String?,
+    val trend: String?=null,
     @SerialName("value")
-    val value: String?
+    val value: String?=null
 )

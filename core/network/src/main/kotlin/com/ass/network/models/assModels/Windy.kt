@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Windy(
     @SerialName("latitude")
-    val latitude: Double,
+    val latitude: Double?=null,
     @SerialName("longitude")
-    val longitude: Double,
+    val longitude: Double?=null,
 )

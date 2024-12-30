@@ -4,10 +4,9 @@ import android.net.Uri
 import androidx.compose.runtime.MutableIntState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptionsBuilder
-import com.ass.bulletin.ui.BulletinRoute
+import com.ass.bulletin.ui.screens.BulletinRoute
 import com.ass.core.foundation.navigation.AssNavDestinations
 import com.ass.core.foundation.navigation.BulletinScreenDestination
-import com.ass.core.foundation.navigation.ObservationMainScreenDestination
 import com.ass.core.foundation.navigation.builders.avalancheSnowSafetyComposable
 
 @Suppress("UNUSED_PARAMETER")

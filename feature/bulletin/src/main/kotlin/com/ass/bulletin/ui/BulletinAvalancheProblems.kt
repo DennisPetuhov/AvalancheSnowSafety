@@ -14,24 +14,25 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import com.ass.bulletin.domain.models.AvalancheProblem
+import com.ass.bulletin.ui.screens.AvalancheProblemIconAndType
 import com.ass.bulletin.ui.util.RecentAvalanchesInformation
 import com.ass.bulletin.ui.util.RecentSnowPackInformation
 import com.ass.bulletin.ui.util.RecentWeatherInformation
-import com.ass.bulletin.ui.util.recentAvalanches
-import com.ass.bulletin.ui.util.recentSnowPack
-import com.ass.bulletin.ui.util.recentWeather
+import com.ass.core.designsystem.R
+import com.ass.core.designsystem.components.text.AssExpandableText
 import com.ass.core.designsystem.components.icons.AssIcons
 import com.ass.core.designsystem.theme.AssPaddings
 import com.ass.core.designsystem.theme.AssTheme
-import com.ass.core.designsystem.R
-
 
 @Composable
-fun AvalancheProblems(modifier: Modifier) {
+fun AvalancheProblems(uiState: BulletinUiState, modifier: Modifier) {
     var expandedStateAvalanche by remember { mutableStateOf(false) }
     var expandedStateSnowPack by remember { mutableStateOf(false) }
     var expandedStateWeather by remember { mutableStateOf(false) }
+
     Column {
         Text(
             text = stringResource(R.string.avalanche_problems),
@@ -39,48 +40,59 @@ fun AvalancheProblems(modifier: Modifier) {
             modifier = modifier.align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = modifier.padding(AssPaddings.padding10dp))
-        Row(horizontalArrangement = Arrangement.Center, modifier = modifier.fillMaxWidth()) {
-            AvalancheProblemIconAndType(
-                avalancheProblemImage = AssIcons.AvalancheProblemGlidingSnow,
-                avalancheProblemType = "Gliding Snow",
-                modifier = modifier
-            )
-            Spacer(modifier = modifier.padding(AssPaddings.padding10dp))
-            AvalancheProblemIconAndType(
-                avalancheProblemImage = AssIcons.AvalancheProblemGlidingSnow,
-                avalancheProblemType = "Glide Snow",
-                modifier = modifier
-            )
-            Spacer(modifier = modifier.padding(AssPaddings.padding10dp))
-            AvalancheProblemIconAndType(
-                avalancheProblemImage = AssIcons.AvalancheProblemNewSnow,
-                avalancheProblemType = "Wet Snow",
-                modifier = modifier
-            )
-        }
+        SetAvalancheProblemIcons(uiState.avalancheProblems, modifier)
         Spacer(modifier = modifier.padding(AssPaddings.padding12dp))
         AssExpandableText(
-            item = recentAvalanches,
+            fieldName = stringResource(com.ass.core.feature.bulletin.R.string.recent_avalanches),
+            uiState = uiState,
             isExpanded = expandedStateAvalanche,
             onExpandedChange = { expandedStateAvalanche = it },
-            recentInformation = { RecentAvalanchesInformation(it) },
+            recentInformation = { RecentAvalanchesInformation(it as BulletinUiState) },
             modifier = modifier
         )
         Spacer(modifier = modifier.padding(AssPaddings.padding1dp))
         AssExpandableText(
-            item = recentSnowPack,
+            fieldName = stringResource(com.ass.core.feature.bulletin.R.string.snowpack),
+            uiState = uiState,
             isExpanded = expandedStateSnowPack,
             onExpandedChange = { expandedStateSnowPack = it },
-            recentInformation = { RecentSnowPackInformation(it) },
+            recentInformation = { RecentSnowPackInformation(it as BulletinUiState) },
             modifier = modifier
         )
         Spacer(modifier = modifier.padding(AssPaddings.padding1dp))
         AssExpandableText(
-            item = recentWeather,
+            fieldName = stringResource(com.ass.core.feature.bulletin.R.string.weather),
+            uiState = uiState,
             isExpanded = expandedStateWeather,
             onExpandedChange = { expandedStateWeather = it },
-            recentInformation = { RecentWeatherInformation(it) },
+            recentInformation = { RecentWeatherInformation(it as BulletinUiState) },
             modifier = modifier
         )
+    }
+}
+
+@Composable
+private fun SetAvalancheProblemIcons(problems: List<AvalancheProblem>, modifier: Modifier) {
+    Row(horizontalArrangement = Arrangement.Center, modifier = modifier.fillMaxWidth()) {
+        problems.forEach { problem ->
+            AvalancheProblemIconAndType(
+                avalancheProblemImage = setIconDependingOnProblemType(problem),
+                avalancheProblemType = problem.kind,
+                modifier = modifier
+            )
+            Spacer(modifier = modifier.padding(AssPaddings.padding10dp))
+        }
+    }
+}
+
+@Composable
+fun setIconDependingOnProblemType(avalancheProblem: AvalancheProblem): ImageVector {
+    return when (avalancheProblem.kind) {
+        "Gliding Snow", "Glide Avalanche" -> AssIcons.AvalancheProblemGlidingSnow
+        "Storm Slab" -> AssIcons.AvalancheProblemNewSnow
+        "Wind Slab" -> AssIcons.AvalancheProblemWindSlab
+        "Persistent Slab", "Deep Slab" -> AssIcons.AvalancheProblemPersistentWeakLayer
+        "Loose Wet", "Wet Slab", "Loose Dry" -> AssIcons.AvalancheProblemWetSnow
+        else -> AssIcons.AvalancheProblemNewSnow
     }
 }

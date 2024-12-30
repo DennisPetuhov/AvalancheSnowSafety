@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AssFile(
     @SerialName("path")
-    val path: String
+    val path: String?=null
 )

@@ -39,7 +39,13 @@ object AssIcons {
         @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_avalanche_danger_level_dry_snow_4_5)
     val AvalancheProblemGlidingSnow: ImageVector
         @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_avalanche_problem_gliding_snow_grey)
-    val AvalancheProblemNewSnow: ImageVector
+    val AvalancheProblemWetSnow: ImageVector
+        @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_avalanche_problem_wet_snow_grey)
+      val AvalancheProblemPersistentWeakLayer: ImageVector
+        @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_avalanche_problem_persistent_weak_layer_grey)
+    val AvalancheProblemWindSlab: ImageVector
+        @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_avalanche_problem_wind_slab_grey)
+      val AvalancheProblemNewSnow: ImageVector
         @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_avalanche_problem_new_snow_grey)
     val MoreAboutAvalanche: ImageVector
         @Composable get() = ImageVector.vectorResource(id = R.drawable.icon_more_about_avalanche)

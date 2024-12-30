@@ -6,13 +6,11 @@ import kotlinx.serialization.Serializable
 
 @OptIn(InternalSerializationApi::class)
 @Serializable
-data class HazardRatings(
+data class AspectElevation(
     @SerialName("alpine")
-    val alpine: Alpine?,
-    @SerialName("high-alpine")
-    val highAlpine: HighAlpine?,
-    @SerialName("overall")
-    val overall: Overall?,
-    @SerialName("sub-alpine")
-    val subAlpine: SubAlpine?,
+    val alpine: Alpine?=null,
+    @SerialName("high_alpine")
+    val highAlpine: HighAlpine? = null,
+    @SerialName("sub_alpine")
+    val subAlpine: SubAlpine? = null
 )

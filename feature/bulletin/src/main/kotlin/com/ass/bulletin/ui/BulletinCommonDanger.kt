@@ -15,16 +15,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import com.ass.bulletin.domain.models.HazardRatings
 import com.ass.bulletin.ui.util.setTheAvalancheDangerLevelIcon
 import com.ass.core.designsystem.theme.*
 import com.ass.core.designsystem.R
-import com.ass.network.models.assModels.Overall
+
 
 @Composable
 fun BulletinCommonDanger(
-    dangerLevel: Overall = Overall(confidence = "1", trend = "1", value = "2"),
-    setTheAvalancheDangerLevelDescription: @Composable (dangerLevel: Overall) -> String,
-    setAvalancheDangerColor: @Composable (dangerLevel: Overall) -> Color,
+    dangerLevel: HazardRatings = HazardRatings(overAll = "2", highAlpine = "1", alpine = "3", subAlpine = "0"),
+    setTheAvalancheDangerLevelDescription: @Composable (dangerLevel: HazardRatings) -> String,
+    setAvalancheDangerColor: @Composable (dangerLevel: HazardRatings) -> Color,
     additionalForecastInfo: String = "New snow will begin later on Sunday. A high freezing level means loose wet avalanches and glide slabs are possible in the sub-alpine. Take care at high elevations where the snowpack is rocky, shallow and steep, as the recent cold snap could have promoted facet (weak layer) formation there.",
     modifier: Modifier = Modifier
 ) {

@@ -56,8 +56,6 @@ import androidx.core.content.ContextCompat
 import com.ass.core.designsystem.R
 import com.ass.core.designsystem.components.input.MainTextField
 import com.ass.core.foundation.permissions.PermissionUtils.permissions
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 
@@ -86,7 +84,7 @@ fun ObservationMainScreenRoute(
 }
 
 
-@OptIn(ExperimentalPermissionsApi::class)
+
 @Composable
 fun ObservationMainScreen(
     viewModel: ObservationMainScreenViewModel,
@@ -110,8 +108,7 @@ fun ObservationMainScreen(
     val keyboardController = LocalSoftwareKeyboardController.current
     var isFieldEnabled by remember { mutableStateOf(false) }
     val snackbarHostState = remember { SnackbarHostState() }
-    val state = rememberMultiplePermissionsState(permissions)
-    val context = LocalContext.current
+     val context = LocalContext.current
     val multiplePermissionResultLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions(),
         onResult = { perms ->

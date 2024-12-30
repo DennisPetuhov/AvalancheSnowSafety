@@ -7,9 +7,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Alpine(
     @SerialName("confidence")
-    val confidence: String?,
+    val confidence: String? = null,
     @SerialName("trend")
-    val trend: String?,
+    val trend: String? = null,
     @SerialName("value")
-    val value: String?,
+    val value: String? = null,
 )

@@ -7,11 +7,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Details(
     @SerialName("area")
-    val area: String,
+    val area: String?=null,
     @SerialName("forecaster")
-    val forecaster: String,
+    val forecaster: String?=null,
     @SerialName("formatted_time")
-    val formattedTime: String,
+    val formattedTime: String?=null,
     @SerialName("time")
-    val time: String,
+    val time: String?=null,
 )

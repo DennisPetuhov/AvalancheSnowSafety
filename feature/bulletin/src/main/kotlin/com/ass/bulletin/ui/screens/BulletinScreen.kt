@@ -1,4 +1,4 @@
-package com.ass.bulletin.ui
+package com.ass.bulletin.ui.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -7,22 +7,26 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableIntState
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.ass.bulletin.ui.AvalancheProblems
+import com.ass.bulletin.ui.BulletinCommonDanger
+import com.ass.bulletin.ui.BulletinMetaInfo
+import com.ass.bulletin.ui.BulletinUiState
+import com.ass.bulletin.ui.util.BulletinTriangleOfElevation
 import com.ass.bulletin.ui.util.setAvalancheDangerColor
 import com.ass.bulletin.ui.util.setTheAvalancheDangerLevelDescription
 import com.ass.core.designsystem.R
-import com.ass.core.designsystem.components.icons.AssIcons
 import com.ass.core.designsystem.components.navbar.AssTopBar
 import com.ass.core.designsystem.theme.*
 import com.ass.core.foundation.navigation.AssNavDestinations
@@ -36,11 +40,10 @@ fun BulletinRoute(
     modifier: Modifier = Modifier,
     viewModel: BulletinViewModel = koinViewModel(),
 ) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     BulletinScreen(
-        upperTriangleDangerLevel = "3/4",
-        mediumTriangleDangerLevel = "2/4",
-        bottomTriangleDangerLevel = "1/4",
-        fetchData = viewModel::fetchData,
+        uiState = uiState,
+        fetchDataApi = viewModel::fetchDataApi,
         navigateByNavBar = navigateByNavBar,
         selectedItem = selectedItem,
         modifier = modifier
@@ -49,10 +52,8 @@ fun BulletinRoute(
 
 @Composable
 fun BulletinScreen(
-    upperTriangleDangerLevel: String,
-    mediumTriangleDangerLevel: String,
-    bottomTriangleDangerLevel: String,
-    fetchData: () -> Unit,
+    uiState: BulletinUiState,
+    fetchDataApi: () -> Unit,
     modifier: Modifier = Modifier,
     navigateByNavBar: (AssNavDestinations) -> Unit,
     selectedItem: MutableIntState,
@@ -73,6 +74,7 @@ fun BulletinScreen(
                 .padding(horizontal = AssPaddings.padding16dp)
                 .padding(top = AssPaddings.padding8dp)
         ) {
+            Button(onClick = { fetchDataApi() }, modifier = modifier.fillMaxWidth()) { Text("API") }
             BulletinCommonDanger(
                 setTheAvalancheDangerLevelDescription = { setTheAvalancheDangerLevelDescription(it) },
                 setAvalancheDangerColor = { setAvalancheDangerColor(it) },
@@ -80,15 +82,13 @@ fun BulletinScreen(
             )
             Spacer(modifier = modifier.size(AssPaddings.padding32dp))
             BulletinTriangleOfElevation(
-                upperTriangleDangerLevel,
-                mediumTriangleDangerLevel,
-                bottomTriangleDangerLevel,
+                hazardRatings = uiState.hazardRatings,
                 modifier
             )
             Spacer(modifier = modifier.size(AssPaddings.padding16dp))
-            AvalancheProblems(modifier)
+            AvalancheProblems(uiState, modifier)
             Spacer(modifier = modifier.size(AssPaddings.padding16dp))
-            BulletinMetaInfo(modifier)
+            BulletinMetaInfo(uiState.bulletinMetadata, modifier)
             Spacer(modifier = modifier.size(AssPaddings.padding16dp))
         }
     }
@@ -100,36 +100,39 @@ fun AvalancheProblemIconAndType(
     avalancheProblemType: String,
     modifier: Modifier = Modifier
 ) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = modifier) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.wrapContentSize()
+
+    ) {
         Image(
-            imageVector = AssIcons.AvalancheProblemNewSnow,
+            imageVector = avalancheProblemImage,
             contentDescription = stringResource(R.string.avalanche_problem),
             alpha = AssAlpha.alpha05,
             modifier = Modifier
+                .size(AssSize.size80dp)
+                .clip(RoundedCornerShape(AssCornerRadius.cornerRadius16dp))
                 .border(
-                    BorderStroke(AssPaddings.padding1dp, AssTheme.colorScheme.primary),
+                    border = BorderStroke(AssBorder.width1dp, AssTheme.colorScheme.primary),
                     shape = RoundedCornerShape(AssCornerRadius.cornerRadius16dp)
                 )
-                .size(AssSize.size80dp)
-                .clip(RoundedCornerShape(AssPaddings.padding10dp))
         )
-        Spacer(modifier = modifier.padding(AssPaddings.padding2dp))
+        Spacer(modifier = modifier.padding(AssPaddings.padding4dp))
         Text(
             text = avalancheProblemType,
             style = AssTheme.typography.labelLarge.copy(color = AssTheme.colorScheme.primary),
         )
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun BulletinPreview() {
-    BulletinScreen(
-        upperTriangleDangerLevel = "3/4",
-        mediumTriangleDangerLevel = "2/4",
-        bottomTriangleDangerLevel = "1/4",
-        fetchData = {},
-        navigateByNavBar = {},
-        selectedItem = remember { mutableIntStateOf(1) }
-    )
-}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun BulletinPreview() {
+//    BulletinScreen(
+//        hazardRatings = HazardRatings(),
+//        fetchDataApi = {},
+//        fetchDataDb = {},
+//        navigateByNavBar = {},
+//        selectedItem = remember { mutableIntStateOf(1) }
+//    )
+//}

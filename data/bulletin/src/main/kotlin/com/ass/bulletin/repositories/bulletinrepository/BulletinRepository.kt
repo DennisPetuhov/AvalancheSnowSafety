@@ -1,7 +1,9 @@
 package com.ass.bulletin.repositories.bulletinrepository
 
-import com.ass.network.models.AssResponse
+import com.ass.bulletin.domain.models.AssBulletin
+import kotlinx.coroutines.flow.Flow
 
 interface BulletinRepository {
-    suspend fun fetchBulletin(): AssResponse
+    suspend fun fetchBulletin()
+    suspend fun getActualBulletin(): Flow<AssBulletin>
 }

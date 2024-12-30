@@ -8,7 +8,7 @@
     <string name="email_hint">liv_man@7up.com</string>
     <string name="name_hint">Johnny</string>
     <string name="second_name_hint">BeGood</string>
-    <string name="phone_hint">7–0–7–0–7–0-7-0</string>
+    <string name="phone_hint">+995599999999</string>
     <string name="checkbox_color_change_animation">checkbox color-change animation</string>
     <string name="field_required_error">This field is required</string>
     <string name="checkbox_empty_snackbar">Terms of Use and Privacy Policy\nPlease read
@@ -72,4 +72,12 @@
     <string name="sign_up">SIGN UP</string>
     <string name="i_accept_this_disclaimer">I accept this disclaimer</string>
     <string name="disclaimer">Our avalanche forecasters are internationally qualified and experienced professionals, and data is provided by skilled observers. We encourage you to make your own observations and decisions, without relying solely on our forecast, since any forecast is a generalised \'best guess\', and in certain cases it might be inaccurate. We can not be held liable for any actions you take in the backcountry that may result in injury, loss or death.</string>
+    <string name="main_text_hazard_rating_4">Natural avalanches are likely, human-triggered avalanches are very likely. Large avalanches in many areas, or large avalanches in specific areas.</string>
+    <string name="main_text_hazard_rating_3">Natural avalanches are possible, human-triggered avalanches are likely. Small avalanches in many areas, or large avalanches in specific areas, or very large avalanches in isolated areas.</string>
+    <string name="main_text_hazard_rating_2">Natural avalanches are unlikely, human-triggered avalanches are possible. Small avalanches in specific areas, or large avalanches in isolated areas.</string>
+    <string name="main_text_hazard_rating_1">Natural and human-triggered avalanches are unlikely. Small avalanches in isolated areas or extreme terrain.</string>
+    <string name="main_text_hazard_rating_0">No Rating.</string>
+    <string name="recent_avalanches">RECENT AVALANCHES</string>
+    <string name="snowpack">SNOWPACK</string>
+    <string name="weather">WEATHER</string>
 </resources>
