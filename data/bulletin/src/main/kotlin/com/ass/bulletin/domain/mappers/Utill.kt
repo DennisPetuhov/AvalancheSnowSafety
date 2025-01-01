@@ -5,8 +5,8 @@ import java.util.regex.Pattern
 
 fun parseAvalancheData(input: String): List<RecentAvalancheEntity> {
     val avalanchePattern = Pattern.compile(
-        """Date: (\w+ \d+), size: (\d+), aspect: \[([^]]+)], elevation: ([^,]+), triggered by: ([^,]+), type: ([^\n]+)\s*([^\n]*)"""
-    )
+        """Date: (\w+ \d+), size: (\d+), aspect: \[([^]]+)], elevation: ([^,]+), triggered by: ([^,]+), type: ([^,]+), description: ([^\n]*)""")
+
 
     val avalanches = mutableListOf<RecentAvalancheEntity>()
     val matcher = avalanchePattern.matcher(input)
