@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Meteoblue(
     @SerialName("location_id")
-    val locationId: String,
+    val locationId: String?=null,
 )

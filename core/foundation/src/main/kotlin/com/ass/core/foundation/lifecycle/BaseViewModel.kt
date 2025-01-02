@@ -9,11 +9,11 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlinx.coroutines.flow.collect
 
-abstract class BaseViewModel<T>(
+abstract class BaseViewModel<BaseUiState>(
     private val applicationLifecycleObserver: ApplicationLifecycleObserver =
         DefaultApplicationLifecycleObserver
 ) : ViewModel() {
-    abstract val uiState: StateFlow<T>
+    abstract val uiState: StateFlow<BaseUiState>
     init {
         observeLifecycleEvents()
        }

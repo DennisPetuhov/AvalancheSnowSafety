@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shape
@@ -26,13 +27,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.ass.bulletin.domain.models.HazardRatings
+import com.ass.core.designsystem.R
 import com.ass.core.designsystem.components.icons.AssIcons
 import com.ass.core.designsystem.theme.AssBorder
 import com.ass.core.designsystem.theme.AssPaddings
 import com.ass.core.designsystem.theme.AssShadow
 import com.ass.core.designsystem.theme.AssSize
 import com.ass.core.designsystem.theme.AssTheme
-import com.ass.core.designsystem.R
 import kotlin.math.tan
 
 class TriangleShape() : Shape {
@@ -170,17 +172,37 @@ class TriangleShape() : Shape {
 }
 
 @Composable
+fun colorOfHazardRatings(rating: String): Color {
+    return when (rating) {
+        "low" -> AssTheme.colorScheme.avalancheDangerLevel1
+        "moderate" -> AssTheme.colorScheme.avalancheDangerLevel2
+        "considerable" -> AssTheme.colorScheme.avalancheDangerLevel3
+        "high" -> AssTheme.colorScheme.avalancheDangerLevel4
+        else -> AssTheme.colorScheme.background
+    }
+}
+fun textOfHazardRatings(rating: String): String {
+    return when (rating) {
+        "low" -> "1/5"
+        "moderate" -> "2/5"
+        "considerable" -> "3/5"
+        "high" -> "5/5"
+        else -> "5/5"
+    }
+}
+
+
+@Composable
 fun TriangleOfElevation(
     onIconClick: () -> Unit = {},
-    triangleUpperText: String,
-    triangleMediumText: String,
-    triangleBottomText: String,
-    modifier: Modifier = Modifier,
+    hazardRatings: HazardRatings,
+    modifier: Modifier = Modifier
+) {
+    val upperColor = colorOfHazardRatings(hazardRatings.highAlpine)
+    println("@@@@"+ hazardRatings.highAlpine)
+    val mediumColor = colorOfHazardRatings(hazardRatings.alpine)
+    val lowerColor = colorOfHazardRatings(hazardRatings.subAlpine)
 
-    ) {
-    val upperColor = AssTheme.colorScheme.avalancheDangerLevel4
-    val mediumColor = AssTheme.colorScheme.avalancheDangerLevel3
-    val lowerColor = AssTheme.colorScheme.avalancheDangerLevel2
     Box(
         modifier = modifier.size(AssSize.size150dp),
         contentAlignment = Alignment.Center
@@ -200,14 +222,14 @@ fun TriangleOfElevation(
                     style = Stroke(width = AssBorder.width1dp.toPx())
                 )
             }
-            this.printLevelOfDanger(
-                upperText = triangleUpperText,
-                mediumText = triangleMediumText,
-                bottomText = triangleBottomText
+            printLevelOfDanger(
+                upperText = textOfHazardRatings(hazardRatings.highAlpine),
+                mediumText = textOfHazardRatings(hazardRatings.alpine),
+                bottomText = textOfHazardRatings(hazardRatings.subAlpine)
             )
         }
         Box(
-            modifier = modifier
+            modifier = Modifier
                 .size(AssSize.size150dp)
                 .padding(start = AssPaddings.padding120dp, bottom = AssPaddings.padding120dp)
         ) {
@@ -216,7 +238,7 @@ fun TriangleOfElevation(
                     .size(AssSize.size48dp)
                     .shadow(AssShadow.shadow4dp, shape = CircleShape)
                     .background(color = AssTheme.colorScheme.background, shape = CircleShape)
-                    .clickable(onClick = { onIconClick() })
+                    .clickable(onClick = onIconClick)
                     .padding(4.dp)
             ) {
                 Icon(

@@ -17,7 +17,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import com.ass.bulletin.domain.models.BulletinMetadata
+import com.ass.bulletin.ui.util.BulletinDoubleColumnText
 import com.ass.core.designsystem.R
 import com.ass.core.designsystem.theme.AssBorder
 import com.ass.core.designsystem.theme.AssCornerRadius
@@ -25,9 +26,8 @@ import com.ass.core.designsystem.theme.AssElevation
 import com.ass.core.designsystem.theme.AssPaddings
 import com.ass.core.designsystem.theme.AssTheme
 
-@Preview
 @Composable
-fun BulletinMetaInfo(modifier: Modifier = Modifier) {
+fun BulletinMetaInfo(bulletinMetadata: BulletinMetadata, modifier: Modifier = Modifier) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
@@ -48,7 +48,7 @@ fun BulletinMetaInfo(modifier: Modifier = Modifier) {
     ) {
         BulletinDoubleColumnText(
             upperText = stringResource(R.string.forecast_issued_at),
-            bottomText = "23 March 2024 01:00"
+            bottomText = bulletinMetadata.time
         )
         VerticalDivider(
             modifier = Modifier.fillMaxHeight(),
@@ -57,7 +57,7 @@ fun BulletinMetaInfo(modifier: Modifier = Modifier) {
         )
         BulletinDoubleColumnText(
             upperText = stringResource(R.string.forecast_valid_until),
-            bottomText = "24 March 2024 01:00"
+            bottomText = bulletinMetadata.validTo
         )
         Spacer(modifier = Modifier.padding(AssPaddings.padding2dp))
         VerticalDivider(
@@ -67,7 +67,7 @@ fun BulletinMetaInfo(modifier: Modifier = Modifier) {
         )
         BulletinDoubleColumnText(
             upperText = stringResource(R.string.forecaster),
-            bottomText = "Manu Greer"
+            bottomText = bulletinMetadata.forecaster
         )
     }
 }

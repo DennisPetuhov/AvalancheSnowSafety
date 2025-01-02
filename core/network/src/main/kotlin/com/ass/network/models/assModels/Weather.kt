@@ -7,9 +7,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Weather(
     @SerialName("weather_maps")
-    val weatherMaps: WeatherMaps,
+    val weatherMaps: WeatherMaps?=null,
     @SerialName("weather_station_ids")
-    val weatherStationIds: List<String>,
+    val weatherStationIds: List<String>?=null,
     @SerialName("wind_unit")
-    val windUnit: String,
+    val windUnit: String?=null,
 )

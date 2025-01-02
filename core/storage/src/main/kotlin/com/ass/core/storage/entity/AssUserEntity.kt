@@ -1,9 +1,9 @@
 package com.ass.core.storage.entity
 
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.Serializable
-
+@InternalSerializationApi
 @Serializable
-@kotlinx.serialization.InternalSerializationApi
 data class AssUserEntity(
     val name: String,
     val secondName: String,

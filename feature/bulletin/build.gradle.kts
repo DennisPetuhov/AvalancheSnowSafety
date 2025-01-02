@@ -10,7 +10,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 26
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -40,8 +40,8 @@ android {
 dependencies {
     implementation(project(":core:foundation"))
     implementation(project(":data:bulletin"))
-    implementation(project(":core:network"))
     implementation(project(":feature:app_bar"))
+    implementation(project(":core:designsystem"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -55,7 +55,6 @@ dependencies {
     implementation(libs.compose.navigation)
     implementation (libs.koin.androidx.compose)
     implementation(libs.koin.annotations)
-    implementation(project(":core:designsystem"))
     ksp(libs.koin.ksp.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -64,6 +63,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-
 }

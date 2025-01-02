@@ -2,7 +2,6 @@ package com.ass.observation.ui.screens.main
 
 import androidx.compose.runtime.mutableStateListOf
 import com.ass.core.foundation.lifecycle.BaseViewModel
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,7 +36,7 @@ class ObservationMainScreenViewModel(
 
 
     override fun reloadData() { }
-    @OptIn(ExperimentalPermissionsApi::class)
+
     fun confirmLocationAndDate(nameOfLocation: String, date: String) {
         _uiState.value = _uiState.value.copy(date = date, nameOfLocation = nameOfLocation)
         println("$date $nameOfLocation")

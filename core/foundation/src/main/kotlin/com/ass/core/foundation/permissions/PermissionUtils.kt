@@ -1,16 +1,10 @@
 package com.ass.core.foundation.permissions
 
 import android.Manifest
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
-import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -21,10 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
 import com.ass.core.foundation.permissions.PermissionUtils.permissions
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.MultiplePermissionsState
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
+
 @Composable
 fun RequestMultiplePermissions(setPermissionCounter: ((String) -> Unit)? = null) {
     val context = LocalContext.current
@@ -54,7 +45,8 @@ fun RequestMultiplePermissions(setPermissionCounter: ((String) -> Unit)? = null)
         }
     }
 }
-@OptIn(ExperimentalPermissionsApi::class)
+
+
 object PermissionUtils {
     val permissions = listOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -104,48 +96,11 @@ object PermissionUtils {
         }
     }
 
-
-    fun requestMultiplePermissions(
-        context: Context,
-        snackbarHostState: SnackbarHostState,
-        state: MultiplePermissionsState, scope: CoroutineScope
-    ) {
-        when {
-            state.allPermissionsGranted -> {}
-
-            state.shouldShowRationale -> {
-                scope.launch {
-                    val result = snackbarHostState.showSnackbar(
-                        message = "Location permissions required for Observations",
-                        actionLabel = "Apply"
-                    )
-
-                    when (result) {
-                        SnackbarResult.ActionPerformed -> {
-
-                            state.launchMultiplePermissionRequest()
-                        }
-
-                        SnackbarResult.Dismissed -> {
-                            val intent = Intent(
-                                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                Uri.fromParts("package", context.packageName, null)
-                            )
-                            context.startActivity(intent)
-                        }
-                    }
-                }
-            }
-
-            else -> {
-                state.launchMultiplePermissionRequest()
-            }
-        }
-
-    }
-
     @Composable
-    fun PhilipPlinerLauncher(onPermissionResult:(String, Boolean)->Unit,modifier: Modifier = Modifier) {
+    fun PhilipPlinerLauncher(
+        onPermissionResult: (String, Boolean) -> Unit,
+        modifier: Modifier = Modifier
+    ) {
         val multiplePermissionResultLauncher = rememberLauncherForActivityResult(
             contract = ActivityResultContracts.RequestMultiplePermissions(),
             onResult = { perms ->
